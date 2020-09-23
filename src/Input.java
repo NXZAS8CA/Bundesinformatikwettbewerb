@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.Arrays;
 
 public class Input {
 
@@ -15,8 +14,9 @@ public class Input {
 
     public static void main(String[] args) throws IOException {
 
-        File file = new File("C:\\Users\\NXZAS8CA\\Documents\\Coding\\Test.txt");
+        File file = new File("C:\\Users\\NXZAS8CA\\Documents\\Coding\\Test3.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
+
         String AnzahlSchueler = br.readLine();
         int AnzahlGeschenke = Integer.parseInt(AnzahlSchueler);
         String[][] Tabellenarray = new String[AnzahlGeschenke][3];
@@ -27,11 +27,12 @@ public class Input {
             Reihenarray = Reihe.split("\\s+");
             int length = Reihenarray.length;
 
-            for(int x = 1; x <length; x++){
-                Tabellenarray[i-1][x-1] =  Reihenarray[x];
+            for(int x = 0; x <length; x++){
+                Tabellenarray[i-1][x] =  Reihenarray[x];
             }
         }
-        System.out.println(Tabellenarray[1][0]);
+        System.out.println(Tabellenarray[0][0]);
+
 
 
 
@@ -39,3 +40,6 @@ public class Input {
 
     }
 }
+
+
+
