@@ -2,7 +2,7 @@ import java.io.*;
 
 public class Input {
 
-
+    private static int i = 0;
     private static String[] Reihenarray;
     private static int Reihelength;
 
