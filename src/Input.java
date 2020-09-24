@@ -33,11 +33,6 @@ public class Input {
         }
         System.out.println(Tabellenarray[0][0]);
 
-
-
-
-
-
     }
 }
 
