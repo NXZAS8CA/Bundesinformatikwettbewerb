@@ -2,7 +2,6 @@ import java.io.*;
 
 public class Input {
 
-
     private static String[] Reihenarray;
     private static int Reihelength;
 
@@ -32,11 +31,6 @@ public class Input {
             }
         }
         System.out.println(Tabellenarray[0][0]);
-
-
-
-
-
 
     }
 }
