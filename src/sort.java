@@ -1,10 +1,8 @@
 import java.io.IOException;
 
-public class sort {
+public class sort extends processing{
 
-
-
-    public static void main(String[] args) throws IOException {
+    public static void main() throws IOException {
         Input.main();//call main input function
 
 
@@ -17,12 +15,14 @@ public class sort {
                     Geschenkezaehler[i]++;
                 }
             }
+        }
 
+        for(int i = 1; i< Geschenkezaehler.length; i++){
+            if(Geschenkezaehler[i] == 1)
+                System.out.println(i);
 
         }
-        System.out.println(Geschenkezaehler[30]);
+
     }
-
-
 
 }

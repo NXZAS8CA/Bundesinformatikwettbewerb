@@ -17,7 +17,7 @@ public class Input extends sort{
 
     public static void main() throws IOException {
 
-        File file = new File("Test3.txt");
+        File file = new File("Test.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
 
         String AnzahlSchueler = br.readLine();
