@@ -14,7 +14,7 @@ public class Input {
 
     public static void main(String[] args) throws IOException {
 
-        File file = new File("C:\\Users\\NXZAS8CA\\Documents\\Coding\\Test3.txt");
+        File file = new File("Test.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
 
         String AnzahlSchueler = br.readLine();
@@ -27,7 +27,7 @@ public class Input {
             Reihenarray = Reihe.split("\\s+");
             int length = Reihenarray.length;
 
-            for(int x = 0; x <length; x++){
+            for(int x = 0; x <length; x++){K
                 Tabellenarray[i-1][x] =  Reihenarray[x];
             }
         }
