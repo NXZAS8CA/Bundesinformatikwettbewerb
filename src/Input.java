@@ -2,9 +2,11 @@ import java.io.*;
 
 public class Input extends sort{
 
+
     private static String[] Reihenarray;
     private static int Reihelength;
     public static String[][] Tabellenarray;
+    public static int AnzahlGeschenke;
 
 
     public Input() {
@@ -15,11 +17,11 @@ public class Input extends sort{
 
     public static void main() throws IOException {
 
-        File file = new File("Test.txt");
+        File file = new File("Test3.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
 
         String AnzahlSchueler = br.readLine();
-        int AnzahlGeschenke = Integer.parseInt(AnzahlSchueler);
+        AnzahlGeschenke = Integer.parseInt(AnzahlSchueler);
         Tabellenarray = new String[AnzahlGeschenke][3];
 
 
