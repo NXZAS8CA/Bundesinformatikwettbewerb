@@ -7,9 +7,6 @@ public class sort extends processing{
     public static void main() throws IOException {
         Input.main();//call main input function
         Geschenkezaehler = new long[Input.AnzahlGeschenke +1];
-        zaehleZahlen(0);
-
-        System.out.println(getIndexofNumber(7,0));
 
     }
     public static long[] zaehleZahlen(int input){
@@ -29,13 +26,7 @@ public class sort extends processing{
             if(Integer.parseInt(Input.Tabellenarray[i][spalte]) == input){
                  index = i;
             }
-
-
         }
         return index;
-
-
     }
-
-
 }
