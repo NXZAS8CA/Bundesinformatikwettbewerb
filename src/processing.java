@@ -26,4 +26,15 @@ public class processing {
             Input.Tabellenarray[input][i] = String.valueOf(0);
         }
     }
+
+    public static void moveDoubleNumbers(int spalte){
+        sort.countNumbers(spalte);
+        for(int i = 0; i <sort.Geschenkezaehler.length;i++){
+            if(sort.Geschenkezaehler[i] == 2){}
+
+
+        }
+
+
+    }
 }
