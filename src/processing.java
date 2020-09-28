@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+
 public class processing {
     private static long[] Endergebnis;
 
@@ -15,7 +16,14 @@ public class processing {
             if(sort.Geschenkezaehler[i] == 1){
                 int index = sort.getIndexofNumber(i,spalte);
                 Endergebnis[index] = i;
+                deleteNumbers(index);
+
             }
+        }
+    }
+    public static void deleteNumbers(int input){
+        for(int i = 0; i <3; i++){
+            Input.Tabellenarray[input][i] = String.valueOf(0);
         }
     }
 }
