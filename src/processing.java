@@ -7,19 +7,15 @@ public class processing {
         sort.main();//call sort main function
         Endergebnis = new long[Input.AnzahlGeschenke];
         moveSingleNumbers(0);
-
     }
+
     public static void moveSingleNumbers(int spalte){
-        sort.zaehleZahlen(spalte);
+        sort.countNumbers(spalte);
         for(int i = 0; i < sort.Geschenkezaehler.length; i++ ){
             if(sort.Geschenkezaehler[i] == 1){
                 int index = sort.getIndexofNumber(i,spalte);
                 Endergebnis[index] = i;
-
             }
-
         }
-
-
     }
 }

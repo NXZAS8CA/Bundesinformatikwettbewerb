@@ -9,7 +9,7 @@ public class sort extends processing{
         Geschenkezaehler = new long[Input.AnzahlGeschenke +1];
 
     }
-    public static long[] zaehleZahlen(int input){
+    public static long[] countNumbers(int input){
         for(int i = 1; i <= Input.AnzahlGeschenke; i++){
             for(int j = 0; j <Input.Tabellenarray.length;j++){
                 if(i == Integer.parseInt(Input.Tabellenarray[j][input])) {
