@@ -26,6 +26,20 @@ public class processing {
 
     public static void moveDoubleNumbers(int spalte){
         sort.countNumbers(spalte);
+        /* Todo:
+            Verleich der ersten Ziffern (Geschenkezähler[0])
+            if Geschenkezähler == 1
+                Index of Geschenkezähler in Tabellenarray suchen
+                Index von tabellenarray Merken und in Endergebnis Eintragen
+                Da erster Wunsch erfüllt wurde, EIntrag "1" in Wunscharray[Stelle des vergeben Wusches im Tabllenarray] (muss noch erstellt werden)
+            *Endergebnis in zweidimensionales array ändern. Jede "Runde" der vergabe in eigene Spalte eintragen. Später erst auf Score prüfen*
+            -
+            Im Falle von doppelten ersten Wünschen (Geschänkezähler[0] > 1)
+            Ersten und letzten Index of Gescheknezähler in Tabellenarray suchen und diese vermerken (weiß noch net wie)
+            if Wunscharray[erster gerade bestimmer Index von geschenkezähler] == 0
+                Eintrag "1" in Wunscharray[Stelle des vergeben Wusches im Tabllenarray]
+                Funktion für zweiten Wunsch
+        */
         for(int i = 0; i <sort.Geschenkezaehler.length;i++){
             if(sort.Geschenkezaehler[i] > 1){
                 Input.Tabellenarray[][];
