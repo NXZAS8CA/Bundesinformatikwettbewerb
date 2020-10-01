@@ -11,9 +11,7 @@ public class processing {
         Endergebnis = new long[Input.AnzahlGeschenke][10];
         Wunscharray = new long[Input.AnzahlGeschenke][10];
         moveSingleNumbers();
-        System.out.println(Endergebnis[7][7]);
-        System.out.println(Wunscharray[7][7]);
-        sort.getIndexofDoubleNumbers(4,1);
+        sort.getIndexofDoubleNumbers(4,0);
         System.out.println(sort.indexofgetIndexofDoubleNumbers[0]);
         System.out.println(sort.indexofgetIndexofDoubleNumbers[1]);
 
