@@ -12,9 +12,10 @@ public class processing {
         Wunscharray = new long[Input.AnzahlGeschenke][10];
         moveSingleNumbers();
         sort.getIndexofDoubleNumbers(4,0);
-        System.out.println(sort.indexofgetIndexofDoubleNumbers[0]);
-        System.out.println(sort.indexofgetIndexofDoubleNumbers[1]);
+        //System.out.println(sort.indexofgetIndexofDoubleNumbers[0]);
+        //System.out.println(sort.indexofgetIndexofDoubleNumbers[1]);
 
+        System.out.println(sort.getHighestNumber(2));
     }
 
     public static void moveSingleNumbers() {

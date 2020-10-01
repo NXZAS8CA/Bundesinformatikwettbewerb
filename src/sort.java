@@ -24,11 +24,11 @@ public class sort extends processing{
         return Geschenkezaehler;
     }
 
-    public static int getIndexofSingleNumber(int input, int spalte){//Only works for numbers which appears once in their column//TODO: get position of wish and return it
+    public static int getIndexofSingleNumber(int input, int spalte){//Only works for numbers which appears once in their column// TODO: get position of wish and return it
         int index = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
             if(Input.Tabellenarray[i][spalte] == input){
-                 index = i;
+                index = i;
             }
         }
         return index;
@@ -43,5 +43,15 @@ public class sort extends processing{
             }
         }
 
+    }
+
+    public static int getHighestNumber(int input){
+        int output = 0;
+        for (int i = 0; i < Geschenkezaehler.length; i++){
+            if(Geschenkezaehler[i][input] >= output){
+                output = (int) Geschenkezaehler[i][input];
+            }
+        }
+        return output;
     }
 }
