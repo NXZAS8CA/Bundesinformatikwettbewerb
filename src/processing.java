@@ -1,8 +1,7 @@
 import java.io.IOException;
 
-
 public class processing {
-    private static long[][] Endergebnis; // zeile sind Wünsche -> aus Wunsch resultiert Geschenk xy
+    private static long[][] Endergebnis; // Zeile sind Wünsche -> aus Wunsch resultiert Geschenk xy
     private static long[] Doppelte;
     private static long[][] Wunscharray; // [Zeile][Spalte]
 
@@ -11,20 +10,21 @@ public class processing {
         Endergebnis = new long[Input.AnzahlGeschenke][10];
         Wunscharray = new long[Input.AnzahlGeschenke][10];
         moveSingleNumbers();
-        System.out.println(Endergebnis[7][7]);
-        System.out.println(Wunscharray[7][7]);
+        //System.out.println(Endergebnis[7][7]);
+        //System.out.println(Wunscharray[7][7]);
+        debug.main(sort.Geschenkezaehler);
     }
 
     public static void moveSingleNumbers() {
-        sort.countNumbers(); // Geschänkezähler
-        //Geschäknezaehler[n] = Anzahl der Wünsche für ein Geschenk n
+        sort.countNumbers(); // Geschenkezähler
+        //Geschenkezaehler[n] = Anzahl der Wünsche für ein Geschenk n
         // i = Geschenk
         for (int i = 0; i < sort.Geschenkezaehler.length; i++) {
             if (sort.Geschenkezaehler[i][0] == 1) {
                 int index = sort.getIndexofSingleNumber(i, 0); // Index = Index of Wunsch in Tabellenarray => Schüler
                 int erfüllterWunsch = 0;
 
-                //welcher der drei Wünsche wurde erfüllt
+                //Welcher der drei Wünsche wurde erfüllt
                 switch(Integer.parseInt(Input.Tabellenarray[index][0])) {
                     case 0:
                         erfüllterWunsch = 1;
@@ -39,7 +39,7 @@ public class processing {
                 //Feste Verteilung für Wünsche über alle Versuche
                 for (int f = 0; f < 10; f++) {
                     Endergebnis[index][f] = i; //Welcher Schüler welches Geschenk erhielt
-                    Wunscharray[index][f] = erfüllterWunsch; //Wlcher Schüler welchen Wunsch erfüllt bekommen hat
+                    Wunscharray[index][f] = erfüllterWunsch; //Welcher Schüler welchen Wunsch erfüllt bekommen hat
                 }
 
             }
@@ -72,4 +72,5 @@ public class processing {
             Input.Tabellenarray[input][i] = String.valueOf(0);
         }
     }
+
 }
