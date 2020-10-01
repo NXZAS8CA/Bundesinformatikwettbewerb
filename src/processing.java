@@ -22,10 +22,24 @@ public class processing {
         for (int i = 0; i < sort.Geschenkezaehler.length; i++) {
             if (sort.Geschenkezaehler[i][0] == 1) {
                 int index = sort.getIndexofSingleNumber(i, 0); // Index = Index of Wunsch in Tabellenarray => Schüler
+                int erfüllterWunsch = 0;
+
+                //welcher der drei Wünsche wurde erfüllt
+                switch(Integer.parseInt(Input.Tabellenarray[index][0])) {
+                    case 0:
+                        erfüllterWunsch = 1;
+                        break;
+                    case 1:
+                        erfüllterWunsch = 2;
+                        break;
+                    case 2:
+                        erfüllterWunsch = 3;
+                        break;
+                }
+                //Feste Verteilung für Wünsche über alle Versuche
                 for (int f = 0; f < 10; f++) {
                     Endergebnis[index][f] = i; //Welcher Schüler welches Geschenk erhielt
-                    //Todo: Wunscharray muss noch auf Wunsch angepasst werden
-                    Wunscharray[index][f] = 1; //Wlcher Schüler welchen Wunsch erfüllt bekommen hat
+                    Wunscharray[index][f] = erfüllterWunsch; //Wlcher Schüler welchen Wunsch erfüllt bekommen hat
                 }
 
             }
