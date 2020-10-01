@@ -8,11 +8,11 @@ public class processing {
 
     public static void main(String[] args) throws IOException {
         sort.main();//call sort main function
-        Endergebnis = new long[Input.AnzahlGeschenke][1];
-        Wunscharray = new long[Input.AnzahlGeschenke][1];
+        Endergebnis = new long[Input.AnzahlGeschenke][10];
+        Wunscharray = new long[Input.AnzahlGeschenke][10];
         moveSingleNumbers();
-        System.out.println(Endergebnis[7][0]);
-        System.out.println(Wunscharray[7][0]);
+        System.out.println(Endergebnis[7][7]);
+        System.out.println(Wunscharray[7][7]);
     }
 
     public static void moveSingleNumbers() {
@@ -22,10 +22,10 @@ public class processing {
         for (int i = 0; i < sort.Geschenkezaehler.length; i++) {
             if (sort.Geschenkezaehler[i][0] == 1) {
                 int index = sort.getIndexofSingleNumber(i, 0); // Index = Index of Wunsch in Tabellenarray => Schüler
-                for (int f = 0; f < Endergebnis.length; f++) {
-                    Endergebnis[index][0] = i; //Welcher Schüler welches Geschenk erhielt
+                for (int f = 0; f < 10; f++) {
+                    Endergebnis[index][f] = i; //Welcher Schüler welches Geschenk erhielt
                     //Todo: Wunscharray muss noch auf Wunsch angepasst werden
-                    Wunscharray[index][0] = 1; //Wlcher Schüler welchen Wunsch erfüllt bekommen hat
+                    Wunscharray[index][f] = 1; //Wlcher Schüler welchen Wunsch erfüllt bekommen hat
                 }
 
             }
