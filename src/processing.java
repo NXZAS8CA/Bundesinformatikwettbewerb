@@ -29,7 +29,7 @@ public class processing {
                 int erfüllterWunsch = 0;
 
                 //welcher der drei Wünsche wurde erfüllt
-                switch(Integer.parseInt(Input.Tabellenarray[index][0])) {
+                switch((int)Input.Tabellenarray[index][0]) {
                     case 0:
                         erfüllterWunsch = 1;
                         break;
@@ -73,7 +73,7 @@ public class processing {
 
     public static void deleteNumbers(int input) {
         for (int i = 0; i < 3; i++) {
-            Input.Tabellenarray[input][i] = String.valueOf(0);
+            Input.Tabellenarray[input][i] = 0;
         }
     }
 }

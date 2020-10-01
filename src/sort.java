@@ -14,7 +14,7 @@ public class sort extends processing{
         for(int i = 1; i <= Input.AnzahlGeschenke; i++){
             for(int y= 0; y < 3; y++) {
                 for (int j = 0; j < Input.Tabellenarray.length; j++) {
-                    if (i == Integer.parseInt(Input.Tabellenarray[j][y])) {
+                    if (i == Input.Tabellenarray[j][y]) {
                         Geschenkezaehler[i][y]++;
                     }
                 }
@@ -26,7 +26,7 @@ public class sort extends processing{
     public static int getIndexofSingleNumber(int input, int spalte){//Only works for numbers which appears once in their column//TODO: get position of wish and return it
         int index = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
-            if(Integer.parseInt(Input.Tabellenarray[i][spalte]) == input){
+            if(Input.Tabellenarray[i][spalte] == input){
                  index = i;
             }
         }
@@ -37,7 +37,7 @@ public class sort extends processing{
 
         int n = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
-            if(Integer.parseInt(Input.Tabellenarray[i][spalte]) == input){
+            if(Input.Tabellenarray[i][spalte] == input){
                 indexofgetIndexofDoubleNumbers[n] = i;
                 n++;
             }
