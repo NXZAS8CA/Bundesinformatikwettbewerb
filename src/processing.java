@@ -13,6 +13,10 @@ public class processing {
         moveSingleNumbers();
         System.out.println(Endergebnis[7][7]);
         System.out.println(Wunscharray[7][7]);
+        sort.getIndexofDoubleNumbers(4,1);
+        System.out.println(sort.indexofgetIndexofDoubleNumbers[0]);
+        System.out.println(sort.indexofgetIndexofDoubleNumbers[1]);
+
     }
 
     public static void moveSingleNumbers() {
