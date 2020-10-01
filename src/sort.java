@@ -22,7 +22,7 @@ public class sort extends processing{
         return Geschenkezaehler;
     }
 
-    public static int getIndexofSingleNumber(int input, int spalte){//Only works for numbers which appears once in their column
+    public static int getIndexofSingleNumber(int input, int spalte){//Only works for numbers which appears once in their column//TODO: get position of wish and return it
         int index = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
             if(Integer.parseInt(Input.Tabellenarray[i][spalte]) == input){
@@ -30,5 +30,19 @@ public class sort extends processing{
             }
         }
         return index;
+    }
+
+    public static void getIndexofDoubleNumbers(int input, int spalte){//TODO: need to work on function, cant return two values.
+        int index = 0;
+        int index2 = 0;
+        for(int i = 0; i< Input.Tabellenarray.length; i++){
+            if(Integer.parseInt(Input.Tabellenarray[i][spalte]) == input){
+
+
+
+            }
+
+
+        }
     }
 }
