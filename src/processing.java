@@ -2,32 +2,37 @@ import java.io.IOException;
 
 
 public class processing {
-    private static long[] Endergebnis; // zeile sind Wünsche -> aus Wunsch resultiert Geschenk xy
+    private static long[][] Endergebnis; // zeile sind Wünsche -> aus Wunsch resultiert Geschenk xy
     private static long[] Doppelte;
-    private static long[][] Wunscharray;
+    private static long[][] Wunscharray; // [Zeile][Spalte]
 
     public static void main(String[] args) throws IOException {
         sort.main();//call sort main function
-        Endergebnis = new long[Input.AnzahlGeschenke];
+        Endergebnis = new long[Input.AnzahlGeschenke][1];
+        Wunscharray = new long[Input.AnzahlGeschenke][1];
         moveSingleNumbers();
-
+        System.out.println(Endergebnis[7][0]);
+        System.out.println(Wunscharray[7][0]);
     }
 
     public static void moveSingleNumbers() {
-        sort.countNumbers();
-        // i = Geschenk
+        sort.countNumbers(); // Geschänkezähler
         //Geschäknezaehler[n] = Anzahl der Wünsche für ein Geschenk n
+        // i = Geschenk
         for (int i = 0; i < sort.Geschenkezaehler.length; i++) {
-            if (sort.Geschenkezaehler[i] == 1) {
-                int index = sort.getIndexofsingleNumber(i);
-                Endergebnis[index] = i;
+            if (sort.Geschenkezaehler[i][0] == 1) {
+                int index = sort.getIndexofSingleNumber(i, 0); // Index = Index of Wunsch in Tabellenarray => Schüler
+                for (int f = 0; f < Endergebnis.length; f++) {
+                    Endergebnis[index][0] = i; //Welcher Schüler welches Geschenk erhielt
+                    //Todo: Wunscharray muss noch auf Wunsch angepasst werden
+                    Wunscharray[index][0] = 1; //Wlcher Schüler welchen Wunsch erfüllt bekommen hat
+                }
 
             }
         }
     }
 
     public static void moveDoubleNumbers(int spalte) {
-        sort.countNumbers(spalte);
         /* Todo:
             Verleich der ersten Ziffern (Geschenkezähler[0])
             if Geschenkezähler == 1
@@ -44,19 +49,6 @@ public class processing {
             -
             Diese Bedingung muss für die Anzahl der Doppelten Wünschen
         */
-        for (int i = 0; i < sort.Geschenkezaehler.length; i++) {
-            if (sort.Geschenkezaehler[i] > 1) {
-                Input.Tabellenarray[][];
-                for (int r = 0; r < Input.Tabellenarray.length; r++) {
-                    if (Integer.parseInt(Input.Tabellenarray[r][0]) == i) {
-                        deleteNumbers(r);
-                    }
-
-                }
-            }
-
-
-        }
 
 
     }
