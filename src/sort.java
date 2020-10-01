@@ -22,10 +22,10 @@ public class sort extends processing{
         return Geschenkezaehler;
     }
 
-    public static int getIndexofsingleNumber(int input){//Only works for numbers which appears once in the first column
+    public static int getIndexofSingleNumber(int input, int spalte){//Only works for numbers which appears once in their column
         int index = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
-            if(Integer.parseInt(Input.Tabellenarray[i][0]) == input){
+            if(Integer.parseInt(Input.Tabellenarray[i][spalte]) == input){
                  index = i;
             }
         }
