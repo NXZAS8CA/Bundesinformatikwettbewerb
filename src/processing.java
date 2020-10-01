@@ -36,9 +36,11 @@ public class processing {
             -
             Im Falle von doppelten ersten Wünschen (Geschänkezähler[0] > 1)
             Ersten und letzten Index of Gescheknezähler in Tabellenarray suchen und diese vermerken (weiß noch net wie)
-            if Wunscharray[erster gerade bestimmer Index von geschenkezähler] == 0
+            if Wunscharray[erster gerade bestimmer Index von geschenkezähler] == 0 && Endergebnis == 0 (Für durchgang mit zweite/dritte Wünsche)
                 Eintrag "1" in Wunscharray[Stelle des vergeben Wusches im Tabllenarray]
                 Funktion für zweiten Wunsch
+            -
+            Diese Bedingung
         */
         for(int i = 0; i <sort.Geschenkezaehler.length;i++){
             if(sort.Geschenkezaehler[i] > 1){
