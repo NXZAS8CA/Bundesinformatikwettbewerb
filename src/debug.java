@@ -9,9 +9,6 @@ public class debug extends processing {
             }
                 System.out.println("\n");
 
-
-
-
         }
     }
 }
