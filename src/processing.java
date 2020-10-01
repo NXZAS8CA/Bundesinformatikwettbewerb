@@ -15,7 +15,7 @@ public class processing {
         //System.out.println(sort.indexofgetIndexofDoubleNumbers[0]);
         //System.out.println(sort.indexofgetIndexofDoubleNumbers[1]);
 
-        System.out.println(sort.getHighestNumber(2));
+        System.out.println(sort.getHighestNumber(0));
     }
 
     public static void moveSingleNumbers() {
