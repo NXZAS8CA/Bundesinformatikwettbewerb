@@ -9,7 +9,7 @@ public class sort extends processing{
         Geschenkezaehler = new long[Input.AnzahlGeschenke +1][3];
 
     }
-    public static long[][] countNumbers(){
+    public static long[][] countNumbers(){//A function to count number of numbers in each column of Tabellenarray.
         for(int i = 1; i <= Input.AnzahlGeschenke; i++){
             for(int y= 0; y < 3; y++) {
                 for (int j = 0; j < Input.Tabellenarray.length; j++) {
