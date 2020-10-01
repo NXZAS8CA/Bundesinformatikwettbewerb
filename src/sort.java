@@ -3,6 +3,7 @@ import java.io.IOException;
 public class sort extends processing{
 
     static long[][] Geschenkezaehler;
+    static int[] indexofgetIndexofDoubleNumbers;
 
     public static void main() throws IOException {
         Input.main();//call main input function
@@ -33,16 +34,14 @@ public class sort extends processing{
     }
 
     public static void getIndexofDoubleNumbers(int input, int spalte){//TODO: need to work on function, cant return two values.
-        int index = 0;
-        int index2 = 0;
-        for(int i = 0; i< Input.Tabellenarray.length; i++){
+
+        int n = 0;
+        for(int i = 0; i < Input.Tabellenarray.length; i++){
             if(Integer.parseInt(Input.Tabellenarray[i][spalte]) == input){
-
-
-
+                indexofgetIndexofDoubleNumbers[n] = i;
+                n++;
             }
-
-
         }
+
     }
 }
