@@ -1,6 +1,6 @@
 
 
-public class debug extends processing {
+public class Debug extends Processing {
     public static void main(long[][] input) {
         for(int i = 0; i< input.length; i++){
             for(int j = 0; j <=2; j++){

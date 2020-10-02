@@ -1,18 +1,18 @@
 import java.io.IOException;
 
-public class sort extends processing{
+public class Preprocessing extends Processing {
 
     static long[][] Geschenkezaehler;
-    static int[] indexofgetIndexofDoubleNumbers;
+    static int[] IndexofgetIndexofDoubleNumbers;
 
     public static void main() throws IOException {
         Input.main();//call main input function
-        Geschenkezaehler = new long[Input.AnzahlGeschenke +1][3];
-        indexofgetIndexofDoubleNumbers = new int[10];
+        Geschenkezaehler = new long[Input.NumberGifts +1][3];
+        IndexofgetIndexofDoubleNumbers = new int[10];
 
     }
     public static long[][] countNumbers(){//A function to count number of numbers in each column of Tabellenarray.
-        for(int i = 1; i <= Input.AnzahlGeschenke; i++){
+        for(int i = 1; i <= Input.NumberGifts; i++){
             for(int y= 0; y < 3; y++) {
                 for (int j = 0; j < Input.Tabellenarray.length; j++) {
                     if (i == Input.Tabellenarray[j][y]) {
@@ -38,7 +38,7 @@ public class sort extends processing{
         int n = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
             if(Input.Tabellenarray[i][spalte] == input){
-                indexofgetIndexofDoubleNumbers[n] = i;
+                IndexofgetIndexofDoubleNumbers[n] = i;
                 n++;
             }
         }

@@ -1,17 +1,11 @@
 import java.io.*;
 
-public class Input extends sort{
+public class Input extends Preprocessing {
 
 
     private static String[] Reihenarray;
-    private static int Reihelength;
     public static long[][] Tabellenarray;
-    public static int AnzahlGeschenke;
-
-
-    public Input() {
-
-    }
+    public static int NumberGifts;
 
 
 
@@ -20,12 +14,12 @@ public class Input extends sort{
         File file = new File("Test2.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
 
-        String AnzahlSchueler = br.readLine();
-        AnzahlGeschenke = Integer.parseInt(AnzahlSchueler);
-        Tabellenarray = new long[AnzahlGeschenke][3];
+        String NumberStudents = br.readLine();
+        NumberGifts = Integer.parseInt(NumberStudents);
+        Tabellenarray = new long[NumberGifts][3];
 
 
-        for(int i = 1; i <= AnzahlGeschenke; i ++){
+        for(int i = 1; i <= NumberGifts; i ++){
             String Reihe = br.readLine();
             Reihenarray = Reihe.split("\\s+");
             int length = Reihenarray.length;
