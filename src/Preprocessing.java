@@ -3,12 +3,12 @@ import java.io.IOException;
 public class Preprocessing extends Processing {
 
     static long[][] Geschenkezaehler;
-    static int[] IndexofgetIndexofDoubleNumbers;
+
 
     public static void main() throws IOException {
         Input.main();//call main input function
         Geschenkezaehler = new long[Input.NumberGifts +1][3];
-        IndexofgetIndexofDoubleNumbers = new int[10];
+        //IndexofgetIndexofDoubleNumbers = new int[10];
 
     }
     public static long[][] countNumbers(){//A function to count number of numbers in each column of Tabellenarray.
@@ -34,15 +34,16 @@ public class Preprocessing extends Processing {
         return index;
     }
 
-    public static void getIndexofDoubleNumbers(int input, int spalte){//TODO: need to work on function, cant return two values.
-        int n = 0;
+    public static int[] getIndexofDoubleNumbers(int input, int spalte){//Returns the two indices of the double Number
+        int[] IndexOfDoubleNumbers = new int[2];
+        int j = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
             if(Input.Tabellenarray[i][spalte] == input){
-                IndexofgetIndexofDoubleNumbers[n] = i;
-                n++;
+                IndexOfDoubleNumbers[j] = i;
+                j++;
             }
         }
-
+    return IndexOfDoubleNumbers;
     }
 
     public static int getHighestNumber(int input){
