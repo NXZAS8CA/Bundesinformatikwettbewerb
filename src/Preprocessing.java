@@ -3,15 +3,15 @@ import java.io.IOException;
 public class Preprocessing extends Processing {
 
     static long[][] Geschenkezaehler;
-    public static long[] IndexOfDoubleNumbers;
+    public static long[] IndexOfMultipleNumbers;
 
 
     public static void main() throws IOException {
         Input.main();//call main input function
         Geschenkezaehler = new long[Input.NumberGifts +1][3];
-        IndexOfDoubleNumbers = new long[10];
+        IndexOfMultipleNumbers = new long[10];
     }
-    public static long[][] countNumbers(){//A function to count number of numbers in each column of Tabellenarray.
+    public static long[][] countNumbers(){//Zählt die Anzahl der Geschenke in einer Spalte vom Tabellenarray.
         for(int i = 1; i <= Input.NumberGifts; i++){
             for(int y= 0; y < 3; y++) {
                 for (int j = 0; j < Input.Tabellenarray.length; j++) {
@@ -24,7 +24,7 @@ public class Preprocessing extends Processing {
         return Geschenkezaehler;
     }
 
-    public static int getIndexofSingleNumber(int input, int spalte){//Only works for numbers which appears once in their column.
+    public static int getIndexofSingleNumber(int input, int spalte){//Geht nur für Zahlen die einmal in ihrer Spalte vorkommen
         int index = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
             if(Input.Tabellenarray[i][spalte] == input){
@@ -34,16 +34,16 @@ public class Preprocessing extends Processing {
         return index;
     }
 
-    public static long[] getIndexofDoubleNumbers(int input, int spalte){//Returns the two indices of the double Number
+    public static long[] getIndexofMultipleNumbers(int input, int spalte){//Returnt die Indize von Zahlen die mehrfach in einer Spalte vorkommen.
 
         int j = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
             if(Input.Tabellenarray[i][spalte] == input){
-                IndexOfDoubleNumbers[j] = i;
+                IndexOfMultipleNumbers[j] = i;
                 j++;
             }
         }
-    return IndexOfDoubleNumbers;
+        return IndexOfMultipleNumbers;
     }
 
     public static int getHighestNumberofGifts(int input){

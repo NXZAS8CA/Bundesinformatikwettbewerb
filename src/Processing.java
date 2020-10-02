@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 
-public class Processing {//TODO: einfache arrays sind int, mehrfache sind als long zu speichern, ansonsten funktioniert die Debug class nicht.
+public class Processing {
     private static long[][] Endergebnis; // Zeile sind Wünsche -> aus Wunsch resultiert Geschenk xy
     private static long[][] Wunscharray; // [Zeile][Spalte]
 
@@ -10,7 +10,7 @@ public class Processing {//TODO: einfache arrays sind int, mehrfache sind als lo
         Endergebnis = new long[Input.NumberGifts][10];//TODO: muss dann noch für n Stellen gebaut werden.
         Wunscharray = new long[Input.NumberGifts][10];//TODO: muss dann noch für n Stellen gebaut werden.
         moveSingleNumbers();
-        Preprocessing.getIndexofDoubleNumbers(4,0);
+        Preprocessing.getIndexofMultipleNumbers(4,0);
 
 
         System.out.println(Preprocessing.getHighestNumberofGifts(0));
