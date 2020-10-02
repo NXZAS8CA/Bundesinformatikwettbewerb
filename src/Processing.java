@@ -1,9 +1,8 @@
 import java.io.IOException;
 
 
-public class Processing {
+public class Processing {//TODO: einfache arrays sind int, mehrfache sind als long zu speichern, ansonsten funktioniert die Debug class nicht.
     private static long[][] Endergebnis; // Zeile sind Wünsche -> aus Wunsch resultiert Geschenk xy
-    private static long[] Doppelte;
     private static long[][] Wunscharray; // [Zeile][Spalte]
 
     public static void main(String[] args) throws IOException {
@@ -14,7 +13,7 @@ public class Processing {
         Preprocessing.getIndexofDoubleNumbers(4,0);
 
 
-        System.out.println(Preprocessing.getHighestNumber(0));
+        System.out.println(Preprocessing.getHighestNumberofGifts(0));
     }
 
     public static void moveSingleNumbers() {

@@ -3,13 +3,13 @@ import java.io.IOException;
 public class Preprocessing extends Processing {
 
     static long[][] Geschenkezaehler;
+    public static long[] IndexOfDoubleNumbers;
 
 
     public static void main() throws IOException {
         Input.main();//call main input function
         Geschenkezaehler = new long[Input.NumberGifts +1][3];
-        //IndexofgetIndexofDoubleNumbers = new int[10];
-
+        IndexOfDoubleNumbers = new long[10];
     }
     public static long[][] countNumbers(){//A function to count number of numbers in each column of Tabellenarray.
         for(int i = 1; i <= Input.NumberGifts; i++){
@@ -24,7 +24,7 @@ public class Preprocessing extends Processing {
         return Geschenkezaehler;
     }
 
-    public static int getIndexofSingleNumber(int input, int spalte){//Only works for numbers which appears once in their column// TODO: get position of wish and return it
+    public static int getIndexofSingleNumber(int input, int spalte){//Only works for numbers which appears once in their column.
         int index = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
             if(Input.Tabellenarray[i][spalte] == input){
@@ -34,8 +34,8 @@ public class Preprocessing extends Processing {
         return index;
     }
 
-    public static int[] getIndexofDoubleNumbers(int input, int spalte){//Returns the two indices of the double Number
-        int[] IndexOfDoubleNumbers = new int[2];
+    public static long[] getIndexofDoubleNumbers(int input, int spalte){//Returns the two indices of the double Number
+
         int j = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
             if(Input.Tabellenarray[i][spalte] == input){
@@ -46,13 +46,13 @@ public class Preprocessing extends Processing {
     return IndexOfDoubleNumbers;
     }
 
-    public static int getHighestNumber(int input){
-        int output = 0;
+    public static int getHighestNumberofGifts(int input){
+        int Number = 0;
         for (int i = 0; i < Geschenkezaehler.length; i++){
-            if(Geschenkezaehler[i][input] >= output){
-                output = (int) Geschenkezaehler[i][input];
+            if(Geschenkezaehler[i][input] > Number){
+                Number = (int) Geschenkezaehler[i][input];
             }
         }
-        return output;
+        return Number;
     }
 }
