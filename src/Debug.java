@@ -11,4 +11,11 @@ public class Debug extends Processing {
 
         }
     }
+
+    public static void printLongArray(long[] input){
+        for(int i = 0; i< input.length; i++){
+            System.out.print(input[i]);
+        }
+
+    }
 }
