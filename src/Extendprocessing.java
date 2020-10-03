@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class Preprocessing extends Processing {
+public class Extendprocessing extends Processing {
 
     static long[][] Geschenkezaehler;
     public static long[] IndexOfMultipleNumbers;

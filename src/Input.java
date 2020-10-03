@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class Input extends Preprocessing {
+public class Input extends Extendprocessing {
 
 
     private static String[] Reihenarray;

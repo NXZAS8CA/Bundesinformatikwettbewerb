@@ -6,14 +6,14 @@ public class Processing {
     private static long[][] Wunscharray; // [Zeile][Spalte]
 
     public static void main(String[] args) throws IOException {
-        Preprocessing.main();//call sort main function
+        Extendprocessing.main();//call sort main function
         Endergebnis = new long[Input.NumberGifts][10];//TODO: muss dann noch für n Stellen gebaut werden.
         Wunscharray = new long[Input.NumberGifts][10];//TODO: muss dann noch für n Stellen gebaut werden.
 
 
-        Preprocessing.countNumbers(); //returnt Geschenkezähler
+        Extendprocessing.countNumbers(); //returnt Geschenkezähler
         moveSingleNumbers();
-        Preprocessing.getIndexofMultipleNumbers(4,0);
+        Extendprocessing.getIndexofMultipleNumbers(4,0);
 
         Debug.printArrayofArray(Wunscharray);
         //System.out.println(Preprocessing.getHighestNumberofGifts(0));
@@ -21,25 +21,11 @@ public class Processing {
 
     public static void moveSingleNumbers() {
         //Geschenkezaehler[n] = Anzahl der Wünsche für ein Geschenk n
-        for (int i = 0; i < Preprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
-            if (Preprocessing.Geschenkezaehler[i][0] == 1) {
-                int index = Preprocessing.getIndexofSingleNumber(i, 0); // Index = Index of Wunsch in Tabellenarray = Schüler
-                int erfüllterWunsch = 0;
+        for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
+            if (Extendprocessing.Geschenkezaehler[i][0] == 1) {
+                int index = Extendprocessing.getIndexofSingleNumber(i, 0); // Index = Index of Wunsch in Tabellenarray = Schüler
 
-                //TODO:
-                // Switch ist unnötig weil der index vorher schon mit der Spalte bestimmt wird. Siehe Input von getIndexofSingleNumber function.
-                // Der Switch kann in anderen Situationen hilfreich sein, nicht aber in dieser function.
-                /*switch((int) Input.Tabellenarray[index][0]) {//Switch welcher der drei Wünsche eines Schülers erfüllt wurde
-                    case 0:
-                        erfüllterWunsch = 1;
-                        break;
-                    case 1:
-                        erfüllterWunsch = 2;
-                        break;
-                    case 2:
-                        erfüllterWunsch = 3;
-                        break;
-                }*/
+
                 //Feste Verteilung für Wünsche über alle Versuche
                 for (int f = 0; f < 10; f++) {//TODO: Die 10 muss noch ausgetauscht werden.
                     Endergebnis[index][f] = i; //Welcher Schüler welches Geschenk erhielt
