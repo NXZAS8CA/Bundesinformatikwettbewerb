@@ -4,32 +4,32 @@ import java.io.IOException;
 public class Processing {
     private static long[][] Endergebnis; // Zeile sind Wünsche -> aus Wunsch resultiert Geschenk xy
     private static long[][] Wunscharray; // [Zeile][Spalte]
+    public static int maxmöglicheVerteilungen = 10;
 
     public static void main(String[] args) throws IOException {
         Extendprocessing.main();//call sort main function
-        Endergebnis = new long[Input.NumberGifts][10];//TODO: muss dann noch für n Stellen gebaut werden.
-        Wunscharray = new long[Input.NumberGifts][10];//TODO: muss dann noch für n Stellen gebaut werden.
-
+        Endergebnis = new long[Input.NumberGifts][maxmöglicheVerteilungen];//TODO: muss dann noch für n Stellen gebaut werden.
+        Wunscharray = new long[Input.NumberGifts][maxmöglicheVerteilungen];//TODO: muss dann noch für n Stellen gebaut werden.
 
         Extendprocessing.countNumbers(); //returnt Geschenkezähler
-        moveSingleNumbers();
+        moveSingleNumbers(0);
         Extendprocessing.getIndexofMultipleNumbers(4,0);
 
-        Debug.printArrayofArray(Wunscharray);
+        Debug.printArrayofArray(Wunscharray, maxmöglicheVerteilungen);
         //System.out.println(Preprocessing.getHighestNumberofGifts(0));
     }
 
-    public static void moveSingleNumbers() {
+    public static void moveSingleNumbers(int spalte) {
         //Geschenkezaehler[n] = Anzahl der Wünsche für ein Geschenk n
         for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
-            if (Extendprocessing.Geschenkezaehler[i][0] == 1) {
-                int index = Extendprocessing.getIndexofSingleNumber(i, 0); // Index = Index of Wunsch in Tabellenarray = Schüler
+            if (Extendprocessing.Geschenkezaehler[i][spalte] == 1) {
+                int index = Extendprocessing.getIndexofSingleNumber(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
 
 
                 //Feste Verteilung für Wünsche über alle Versuche
-                for (int f = 0; f < 10; f++) {//TODO: Die 10 muss noch ausgetauscht werden.
+                for (int f = 0; f < maxmöglicheVerteilungen; f++) {//TODO: Die 10 muss noch ausgetauscht werden.
                     Endergebnis[index][f] = i; //Welcher Schüler welches Geschenk erhielt
-                    Wunscharray[index][f] = 1; //Welcher Schüler welchen Wunsch erfüllt bekommen hat
+                    Wunscharray[index][f] = (spalte + 1); //Welcher Schüler welchen Wunsch erfüllt bekommen hat
                 }
 
             }
