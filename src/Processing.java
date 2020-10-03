@@ -36,9 +36,7 @@ public class Processing {
         }
     }
 
-    public static void moveMultipleNumbers() {
-
-
+    public static void moveMultipleNumbers(int spalte) {
         /* Todo:
             Vergleich der ersten Ziffern (Geschenkezähler[n][0])
             if Geschenkezähler[n][0] == 1
@@ -52,7 +50,7 @@ public class Processing {
             -
             -
             Im Falle von doppelten ersten Wünschen (Geschänkezähler[0] > 1)
-            Ersten und letzten Index of Geschenkezähler in Tabellenarray suchen und diese vermerken (weiß noch net wie)- getIndexofMultipleNumbers returnt ein Array, indem die Indize von klein nach groß vermerkt sind.
+            Ersten und letzten Index of Geschenkezähler in Tabellenarray suchen und diese vermerken (weiß noch net wie)- tgeIndexofMultipleNumbers returnt ein Array, indem die Indize von klein nach groß vermerkt sind.
                 First = IndexofMultipleNumbers[0] , Last = IndexofMultipleNumbers[IndexofMultipleNumbers.length-1]
             if Wunscharray[erster gerade bestimmer Index von geschenkezähler] == 0 && Endergebnis == 0 (Für durchgang mit zweite/dritte Wünsche)
                 Eintrag "1" in Wunscharray[Stelle des vergeben Wusches im Tabllenarray]
@@ -61,9 +59,19 @@ public class Processing {
             Diese Bedingung muss für die Anzahl der Doppelten Wünschen
         */
 
+        for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
+            if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
+                Extendprocessing.getIndexofMultipleNumbers(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
+                for(int f = 0; f < Extendprocessing.IndexOfMultipleNumbers.length; f++){
+
+                    Endergebnis[f][f] = Extendprocessing.IndexOfMultipleNumbers[f];
+                }
+                Extendprocessing.IndexOfMultipleNumbers[];
+            }
+        }
+        Extendprocessing.getIndexofMultipleNumbers(1,0);
 
     }
-
     public static void deleteNumbers(int input) {
         for (int i = 0; i < 3; i++) {
             Input.Tabellenarray[input][i] = 0;

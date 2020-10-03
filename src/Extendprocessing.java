@@ -34,16 +34,15 @@ public class Extendprocessing extends Processing {
         return index;
     }
 
-    public static long[] getIndexofMultipleNumbers(int input, int spalte){//Returnt die Indize von Zahlen die mehrfach in einer Spalte vorkommen.
-
-        int j = 0;
+    public static void getIndexofMultipleNumbers(int input, int spalte){//Returnt die Indize von Zahlen die mehrfach in einer Spalte vorkommen.
+        int f = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
             if(Input.Tabellenarray[i][spalte] == input){
-                IndexOfMultipleNumbers[j] = i;
-                j++;
+                IndexOfMultipleNumbers[f] = i;
+                f++;
+
             }
         }
-        return IndexOfMultipleNumbers;
     }
 
     public static int getHighestNumberofGifts(int input){
