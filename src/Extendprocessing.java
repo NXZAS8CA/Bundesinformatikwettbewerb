@@ -45,7 +45,7 @@ public class Extendprocessing extends Processing {
         }
     }
 
-    public static int getHighestNumberofGifts(int input){
+    public static int getHighestNumberofGifts(int input){//TODO: Weiß nicht mehr was diese Funktion kann...
         int Number = 0;
         for (int i = 0; i < Geschenkezaehler.length; i++){
             if(Geschenkezaehler[i][input] > Number){
@@ -55,5 +55,14 @@ public class Extendprocessing extends Processing {
         return Number;
     }
 
+    public static int getHighestCountofFirstWishes(){//Zählt die Maximale Anzahl an ersten Wünschen die erfüllt werden können
+        int counter = 0;
+        for(int i= 0; i < Geschenkezaehler.length; i++){
+            if(Geschenkezaehler[i][0] >= 1){
+                counter ++;
+            }
+        }
+        return counter;
+    }
 
 }
