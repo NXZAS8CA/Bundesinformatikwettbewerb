@@ -24,8 +24,6 @@ public class Processing {
         for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] == 1) {
                 int index = Extendprocessing.getIndexofSingleNumber(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
-
-
                 //Feste Verteilung für Wünsche über alle Versuche
                 for (int f = 0; f < maxmöglicheVerteilungen; f++) {//TODO: Die 10 muss noch ausgetauscht werden.
                     Endergebnis[index][f] = i; //Welcher Schüler welches Geschenk erhielt
@@ -59,22 +57,32 @@ public class Processing {
             Diese Bedingung muss für die Anzahl der Doppelten Wünschen
         */
 
+        int f = 0; // Zähler für Spalte (Runde)
+        int g = 0; //Zähler für betrachteter Schüler
+        boolean freigabe = true;
         for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
-                for(int f = 0; f < Extendprocessing.IndexOfMultipleNumbers.length; f++){
 
-                    Endergebnis[f][f] = Extendprocessing.IndexOfMultipleNumbers[f];
+                if(Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] == 0){ //Ist schon ein Ergebnis in Spalte f für den Schüler g vorhanden
+                    for(int d = f; d  >= 0; d--){//Ist schon ein Geschenk in den vorherigen Spalten für Schüler g vorhanden
+                        if(Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][d] == i){
+                            freigabe = false;//Wenn schon vorhanden, keine Freigabe
+                        }
+                    }
+                    if(freigabe == true){// Wenn freigabe erteilt = Gebe dem Schüler g in Spalte f das geschenk i
+                        Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] = i;
+                        f++;//betrachte die nächste Spalte (Runde)
+                    }
+                    if(freigabe == false){//Wenn der Schüler g schon das Geschenk einaml erhalten hat, betrachte den nächsten Schüler
+                        g++;
+                    }
                 }
+
                 Extendprocessing.IndexOfMultipleNumbers[];
             }
         }
         Extendprocessing.getIndexofMultipleNumbers(1,0);
 
-    }
-    public static void deleteNumbers(int input) {
-        for (int i = 0; i < 3; i++) {
-            Input.Tabellenarray[input][i] = 0;
-        }
     }
 }
