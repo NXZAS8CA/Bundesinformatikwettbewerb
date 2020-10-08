@@ -66,12 +66,5 @@ public class Extendprocessing extends Processing {
     }
 
 
-    private static long fakultaet(int input){
-        if (input==0||input==1){
-            return 1;
-        }
-        else {
-            return input * fakultaet(input - 1);
-        }
-    }
+
 }
