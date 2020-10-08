@@ -63,26 +63,25 @@ public class Processing {
         for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
-
-                if(Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] == 0){ //Ist schon ein Ergebnis in Spalte f für den Schüler g vorhanden
-                    for(int d = f; d  >= 0; d--){//Ist schon ein Geschenk in den vorherigen Spalten für Schüler g vorhanden
-                        if(Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][d] == i){
-                            freigabe = false;//Wenn schon vorhanden, keine Freigabe
+                for(int x = 0; x < Extendprocessing.IndexOfMultipleNumbers.length; x++;{
+                    if(Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] == 0){ //Ist schon ein Ergebnis in Spalte f für den Schüler g vorhanden
+                        for(int d = f; d  >= 0; d--){//Ist schon ein Geschenk in den vorherigen Spalten für Schüler g vorhanden
+                            if(Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][d] == i){
+                                freigabe = false;//Wenn schon vorhanden, keine Freigabe
+                            }
+                        }
+                        if(freigabe == true){// Wenn freigabe erteilt = Gebe dem Schüler g in Spalte f das geschenk i
+                            Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] = i;
+                            f++;//betrachte die nächste Spalte (Runde)
+                        }
+                        if(freigabe == false){//Wenn der Schüler g schon das Geschenk einaml erhalten hat, betrachte den nächsten Schüler
+                            g++;
                         }
                     }
-                    if(freigabe == true){// Wenn freigabe erteilt = Gebe dem Schüler g in Spalte f das geschenk i
-                        Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] = i;
-                        f++;//betrachte die nächste Spalte (Runde)
-                    }
-                    if(freigabe == false){//Wenn der Schüler g schon das Geschenk einaml erhalten hat, betrachte den nächsten Schüler
-                        g++;
-                    }
                 }
-
-                Extendprocessing.IndexOfMultipleNumbers[];
             }
         }
-        Extendprocessing.getIndexofMultipleNumbers(1,0);
 
+        Extendprocessing.getIndexofMultipleNumbers(1,0);
     }
 }
