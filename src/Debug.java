@@ -18,4 +18,5 @@ public class Debug extends Processing {
             System.out.println("\n");
         }
     }
+
 }

@@ -12,10 +12,10 @@ public class Processing {
         Wunscharray = new long[Input.NumberGifts][maxmöglicheVerteilungen];//TODO: muss dann noch für n Stellen gebaut werden.
 
         Extendprocessing.countNumbers(); //returnt Geschenkezähler
-        moveSingleNumbers(0);
+        //moveSingleNumbers(0);
+        moveMultipleNumbers(0);
         Extendprocessing.getIndexofMultipleNumbers(4,0);
-
-        Debug.printArrayofArray(Wunscharray, maxmöglicheVerteilungen);
+        Debug.printArrayofArray(Endergebnis, 1);
         //System.out.println(Preprocessing.getHighestNumberofGifts(0));
     }
 
@@ -63,7 +63,8 @@ public class Processing {
         for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
-                for(int x = 0; x < Extendprocessing.IndexOfMultipleNumbers.length; x++;{
+                //for(int x = 0; x < Extendprocessing.IndexOfMultipleNumbers.length; x++){
+
                     if(Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] == 0){ //Ist schon ein Ergebnis in Spalte f für den Schüler g vorhanden
                         for(int d = f; d  >= 0; d--){//Ist schon ein Geschenk in den vorherigen Spalten für Schüler g vorhanden
                             if(Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][d] == i){
@@ -73,15 +74,15 @@ public class Processing {
                         if(freigabe == true){// Wenn freigabe erteilt = Gebe dem Schüler g in Spalte f das geschenk i
                             Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] = i;
                             f++;//betrachte die nächste Spalte (Runde)
+                            g++;
                         }
                         if(freigabe == false){//Wenn der Schüler g schon das Geschenk einaml erhalten hat, betrachte den nächsten Schüler
                             g++;
+                            f++;
                         }
                     }
-                }
+                //  }
             }
         }
-
-        Extendprocessing.getIndexofMultipleNumbers(1,0);
     }
 }
