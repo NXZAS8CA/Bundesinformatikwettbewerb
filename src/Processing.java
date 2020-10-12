@@ -63,7 +63,7 @@ public class Processing {
         for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
-                //for(int x = 0; x < Extendprocessing.IndexOfMultipleNumbers.length; x++){
+                for(int x = 0; x < Extendprocessing.IndexOfMultipleNumbers[i]; x++){
 
                     if(Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] == 0){ //Ist schon ein Ergebnis in Spalte f für den Schüler g vorhanden
                         for(int d = f; d  >= 0; d--){//Ist schon ein Geschenk in den vorherigen Spalten für Schüler g vorhanden
@@ -81,7 +81,7 @@ public class Processing {
                             f++;
                         }
                     }
-                //  }
+                }
             }
         }
     }
