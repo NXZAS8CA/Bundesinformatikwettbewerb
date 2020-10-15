@@ -3,7 +3,7 @@ import java.io.IOException;
 
 public class Processing {
     private static long[][] Endergebnis; // Zeile sind Wünsche -> aus Wunsch resultiert Geschenk xy
-    private static long[][] Wunscharray; // [Zeile][Spalte]
+    public static long[][] Wunscharray; // [Zeile][Spalte]
     public static int maxmöglicheVerteilungen = 10;
 
     public static void main(String[] args) throws IOException {
@@ -15,8 +15,11 @@ public class Processing {
         //moveSingleNumbers(0);
         moveMultipleNumbers(0);
         Extendprocessing.getIndexofMultipleNumbers(4,0);
-        Debug.printArrayofArray(Endergebnis, 1);
-        //System.out.println(Preprocessing.getHighestNumberofGifts(0));
+        moveSingleNumbers(1);
+        //Debug.printArrayofArray(Wunscharray, 1);
+        System.out.println(Extendprocessing.getScoreofWishes(1,1));//Funktioniert, Werte müssen aber überprüft werden.
+
+
     }
 
     public static void moveSingleNumbers(int spalte) {
@@ -76,7 +79,7 @@ public class Processing {
                             f++;//betrachte die nächste Spalte (Runde)
                             g++;
                         }
-                        if(freigabe == false){//Wenn der Schüler g schon das Geschenk einaml erhalten hat, betrachte den nächsten Schüler
+                        else if(freigabe == false){//Wenn der Schüler g schon das Geschenk einaml erhalten hat, betrachte den nächsten Schüler
                             g++;
                             f++;
                         }

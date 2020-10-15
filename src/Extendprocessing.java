@@ -4,7 +4,7 @@ public class Extendprocessing extends Processing {
 
     static long[][] Geschenkezaehler;
     public static long[] IndexOfMultipleNumbers;
-
+    public static long[] vergebeneZahlen;
 
     public static void main() throws IOException {
         Input.main();//call main input function
@@ -65,6 +65,31 @@ public class Extendprocessing extends Processing {
         return counter;
     }
 
+    public static int getScoreofWishes(int Input, int Durchgang){//Zählt die Anzahl an Wünschen(Input) die erfüllt wurde im angegebenen Durchgang.
+        int counter = 0;
+        for(int i = 0; i < Processing.Wunscharray.length; i++){
+            if(Wunscharray[i][Durchgang] == Input){
+                counter++;
+            }
+        }
+        return counter;
+    }
 
+
+
+
+    public static long[] vergebeneZahlen(){//TODO: muss noch fertig gebaut werden, vielleicht wird die Funktion gar nicht benötigt.
+        int maxWishes = getHighestCountofFirstWishes();
+        int j = 0;
+
+        vergebeneZahlen = new long[maxWishes];
+        for(int i = 0; i < Geschenkezaehler.length; i++){
+            if(Extendprocessing.Geschenkezaehler[i][0] >= 1) {
+                vergebeneZahlen[j] = i;
+                j++;
+            }
+        }
+        return vergebeneZahlen;
+    }
 
 }
