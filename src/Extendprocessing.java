@@ -65,7 +65,7 @@ public class Extendprocessing extends Processing {
         return counter;
     }
 
-    public static int getScoreofWishes(int Input, int Durchgang){//Zählt die Anzahl an Wünschen(Input) die erfüllt wurde im angegebenen Durchgang.
+    public static int getScoreofWishes(int Input, int Durchgang){//TODO: Muss noch abgeändert werden...//Zählt die Anzahl an Wünschen(Input) die erfüllt wurde im angegebenen Durchgang.
         int counter = 0;
         for(int i = 0; i < Processing.Wunscharray.length; i++){
             if(Wunscharray[i][Durchgang] == Input){
