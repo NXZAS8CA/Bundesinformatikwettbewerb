@@ -1,43 +1,60 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.lang.*;
 
 public class Processing {
-    private static long[][] Endergebnis; // Zeile sind Wünsche -> aus Wunsch resultiert Geschenk xy
+    private static long[][] Endergebnisarray; // Zeile sind Wünsche -> aus Wunsch resultiert Geschenk xy
     public static long[][] Wunscharray; // [Zeile][Spalte]
     public static int maxmöglicheVerteilungen = 10;
+
+    public static ArrayList Wunscharray1;
+    public static ArrayList Endergebnisarray1;
 
 
     public static void main(String[] args) throws IOException {
         Extendprocessing.main();//call sort main function
 
-        Endergebnis = new long[Input.NumberGifts][maxmöglicheVerteilungen];//TODO: muss dann noch für n Stellen gebaut werden.
+        Endergebnisarray = new long[Input.NumberGifts][maxmöglicheVerteilungen];//TODO: muss dann noch für n Stellen gebaut werden.
         Wunscharray = new long[Input.NumberGifts][maxmöglicheVerteilungen];//TODO: muss dann noch für n Stellen gebaut werden.
+        Wunscharray1 = new ArrayList();
+        Endergebnisarray1 = new ArrayList();
 
         Extendprocessing.countNumbers(); //returnt Geschenkezähler
-        moveSingleNumbers();
+        moveSingleNumbers1();
         //moveMultipleNumbers(0);
         Extendprocessing.getIndexofMultipleNumbers(4,0);
+        System.out.println(Wunscharray1);
+        System.out.println(Endergebnisarray1);
 
-        Debug.printArrayofArray(Endergebnis, maxmöglicheVerteilungen);
+        //Debug.printArrayofArray(Endergebnis, maxmöglicheVerteilungen);
         //System.out.println(Extendprocessing.getScoreofWishes(1,1));//Funktioniert, Werte müssen aber überprüft werden.
 
 
     }
-
-    public static void moveSingleNumbers() {
+    public  static void moveSingleNumbers1(){
         int spalte = 0;
-        //Geschenkezaehler[n] = Anzahl der Wünsche für ein Geschenk n
+        String Inhalt_default= "";
+        for(int i = 0; i < Input.NumberGifts; i++){
+            Inhalt_default = Inhalt_default + "0";
+        }
+        StringBuilder Wunsch = new StringBuilder(Inhalt_default);
+        StringBuilder Endergebnis1 = new StringBuilder(Inhalt_default);
+
         for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] == 1) {
                 int schüler = Extendprocessing.getIndexofSingleNumber(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
                 //Feste Verteilung für Wünsche über alle Versuche
-                for (int f = 0; f < maxmöglicheVerteilungen; f++) {//TODO: Die 10 muss noch ausgetauscht werden.
-                    Endergebnis[schüler][f] = i; //Welcher Schüler welches Geschenk erhielt
-                    Wunscharray[schüler][f] = (spalte + 1); //Welcher Schüler welchen Wunsch erfüllt bekommen hat
-                }
-
+                    Wunsch.setCharAt(schüler, '1');
+                    char c= (char) i;
+                    Endergebnis1.setCharAt(schüler, c);
+                    //Endergebnis[schüler][f] = i; //Welcher Schüler welches Geschenk erhielt
+                    //Wunscharray[schüler][f] = (spalte + 1); //Welcher Schüler welchen Wunsch erfüllt bekommen hat
             }
         }
+
+        Wunscharray1.add(Wunsch);
+        Endergebnisarray1.add(Endergebnis1);
+
     }
 
     public static void moveMultipleNumbers(int spalte) {
@@ -71,14 +88,14 @@ public class Processing {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
                 for(int x = 0; x < Extendprocessing.IndexOfMultipleNumbers.length; x++){
 
-                    if(Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] == 0){ //Ist schon ein Ergebnis in Spalte f für den Schüler g vorhanden
+                    if(Endergebnisarray[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] == 0){ //Ist schon ein Ergebnis in Spalte f für den Schüler g vorhanden
                         for(int d = f; d  >= 0; d--){//Ist schon ein Geschenk in den vorherigen Spalten für Schüler g vorhanden
-                            if(Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][d] == i){
+                            if(Endergebnisarray[(int)Extendprocessing.IndexOfMultipleNumbers[g]][d] == i){
                                 freigabe = false;//Wenn schon vorhanden, keine Freigabe
                             }
                         }
                         if(freigabe == true){// Wenn freigabe erteilt = Gebe dem Schüler g in Spalte f das geschenk i
-                            Endergebnis[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] = i;
+                            Endergebnisarray[(int)Extendprocessing.IndexOfMultipleNumbers[g]][f] = i;
                             f++;//betrachte die nächste Spalte (Runde)
                             g++;
                         }
