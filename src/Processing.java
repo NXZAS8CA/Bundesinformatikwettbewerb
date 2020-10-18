@@ -2,12 +2,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.lang.*;
 
+import java.util.List;
+
 public class Processing {
     private static long[][] Endergebnisarray; // Zeile sind Wünsche -> aus Wunsch resultiert Geschenk xy
     public static long[][] Wunscharray; // [Zeile][Spalte]
     public static int maxmöglicheVerteilungen = 10;
 
-    public static ArrayList Wunscharray1;
+    public static List<int[]> Wunscharray1;
     public static ArrayList Endergebnisarray1;
 
 
@@ -16,16 +18,21 @@ public class Processing {
 
         Endergebnisarray = new long[Input.NumberGifts][maxmöglicheVerteilungen];//TODO: muss dann noch für n Stellen gebaut werden.
         Wunscharray = new long[Input.NumberGifts][maxmöglicheVerteilungen];//TODO: muss dann noch für n Stellen gebaut werden.
-        Wunscharray1 = new ArrayList();
+        Wunscharray1 = new ArrayList<int[]>();
         Endergebnisarray1 = new ArrayList();
 
         Extendprocessing.countNumbers(); //returnt Geschenkezähler
         moveSingleNumbers1();
         //moveMultipleNumbers(0);
         Extendprocessing.getIndexofMultipleNumbers(4,0);
-        System.out.println(Wunscharray1);
-        System.out.println(Endergebnisarray1);
+        //System.out.println(Wunscharray1);
+        int[] test = Wunscharray1.get(0);
 
+        for(int i = 0; i < test.length; i++){
+            System.out.print(test[i]);
+            System.out.print(",");
+
+        }
         //Debug.printArrayofArray(Endergebnis, maxmöglicheVerteilungen);
         //System.out.println(Extendprocessing.getScoreofWishes(1,1));//Funktioniert, Werte müssen aber überprüft werden.
 
@@ -33,27 +40,19 @@ public class Processing {
     }
     public  static void moveSingleNumbers1(){
         int spalte = 0;
-        String Inhalt_default= "";
+        int[] endergebnis = new int[Input.NumberGifts];
         for(int i = 0; i < Input.NumberGifts; i++){
-            Inhalt_default = Inhalt_default + "0";
+            endergebnis[i] = 0;
         }
-        StringBuilder Wunsch = new StringBuilder(Inhalt_default);
-        StringBuilder Endergebnis1 = new StringBuilder(Inhalt_default);
-
         for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] == 1) {
                 int schüler = Extendprocessing.getIndexofSingleNumber(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
                 //Feste Verteilung für Wünsche über alle Versuche
-                    Wunsch.setCharAt(schüler, '1');
-                    char c= (char) i;
-                    Endergebnis1.setCharAt(schüler, c);
-                    //Endergebnis[schüler][f] = i; //Welcher Schüler welches Geschenk erhielt
-                    //Wunscharray[schüler][f] = (spalte + 1); //Welcher Schüler welchen Wunsch erfüllt bekommen hat
+                endergebnis[schüler] = 1;
             }
         }
 
-        Wunscharray1.add(Wunsch);
-        Endergebnisarray1.add(Endergebnis1);
+        Wunscharray1.add(endergebnis);
 
     }
 
