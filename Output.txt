@@ -1,0 +1,4 @@
+Schüleranzahl: 10
+Erfüllte erste Wünsche: 
+Erfüllte zweite Wünsche:
+Erfüllte dritte Wünsche:
