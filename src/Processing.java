@@ -28,7 +28,7 @@ public class Processing {
         System.out.println(Zwischenspeicher[0]);
         Debug.printArray(Zwischenspeicher);
         System.out.println();
-        moveMultipleNumbers(0, Zwischenspeicher);
+        moveMultipleNumbers(0, Zwischenspeicher, 0);
         Extendprocessing.getIndexofMultipleNumbers(4, 0);
         //System.out.println(Input.NumberGifts);
         Debug.printArraylits(Wunscharray);
@@ -65,25 +65,32 @@ public class Processing {
 
     }
 
-    public static void moveMultipleNumbers(int spalte, int[] arr) {
-        int[] arr2 = new int[arr.length];
-        for(int f = 0; f < arr.length; f++){
-            arr2[f] = arr[f];
-        }
-        for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
+    public static void moveMultipleNumbers(int spalte, int[] arr, int i) {
+        while (i < Extendprocessing.Geschenkezaehler.length) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte);
-                for(int f = 0; f < 2; f++){
-                    for(int d = 0; d < arr.length; d++){
+                for (int f = 0; f < Extendprocessing.IndexOfMultipleNumbers.size(); f++) {
+                    int[] arr2 = new int[arr.length];
+                    for (int d = 0; d < arr.length; d++) {
                         arr2[d] = arr[d];
                     }
-                    int zw = Extendprocessing.IndexOfMultipleNumbers[f];
-                    System.out.println(zw);
+                    int zw = Extendprocessing.IndexOfMultipleNumbers.get(f);
+                    //System.out.println(zw);
                     arr2[zw] = 1;
                     Wunscharray.add(arr2);
+                    for (int a = (i + 1); a < Extendprocessing.IndexOfMultipleNumbers.size(); a++) {
+                        if (Extendprocessing.Geschenkezaehler[a][spalte] > 1) {
+                            int al = Wunscharray.size();
+                            moveMultipleNumbers(0, Wunscharray.get(al), a);
+
+                        }
+
+                    }
+
 
                 }
             }
+            i++;
         }
 
 
