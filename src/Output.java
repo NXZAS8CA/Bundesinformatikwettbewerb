@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class Output {
     public static void main(String[] args) throws IOException {
-        Processing.main();
+        //Processing.main();
         File file = new File("Output.txt");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file));
         bw.write("Schüleranzahl: " + Input.NumberGifts);
@@ -16,7 +16,7 @@ public class Output {
         bw.newLine();
         bw.write("Erfüllte dritte Wünsche:");
         for(int i = 0; i < Input.NumberGifts; i++){
-            bw.
+
 
         }
         bw.close();

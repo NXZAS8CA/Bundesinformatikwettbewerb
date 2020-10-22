@@ -3,13 +3,14 @@ import java.io.IOException;
 public class Extendprocessing extends Processing {
 
     static long[][] Geschenkezaehler;
-    public static long[] IndexOfMultipleNumbers;
+
+    public static int[] IndexOfMultipleNumbers;
     public static long[] vergebeneZahlen;
 
     public static void main() throws IOException {
         Input.main();//call main input function
         Geschenkezaehler = new long[Input.NumberGifts +1][3];
-        IndexOfMultipleNumbers = new long[10];
+        IndexOfMultipleNumbers = new int[10];
     }
     public static long[][] countNumbers(){//Zählt die Anzahl der Geschenke in einer Spalte vom Tabellenarray.
         for(int i = 1; i <= Input.NumberGifts; i++){
