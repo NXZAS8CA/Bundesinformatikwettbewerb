@@ -46,7 +46,7 @@ public class Extendprocessing extends Processing {
         }
     }
 
-    public static int getHighestNumberofGifts(int input){//TODO: Weiß nicht mehr was diese Funktion kann...
+    public static int getHighestNumberofGifts(int input){//TODO: Weiß nicht mehr was diese Funktion kann...Wird wahrscheinlich nicht mehr benötigt.
         int Number = 0;
         for (int i = 0; i < Geschenkezaehler.length; i++){
             if(Geschenkezaehler[i][input] > Number){
@@ -75,22 +75,15 @@ public class Extendprocessing extends Processing {
         }
         return counter;
     }*/
+    public static void getBestDistribution(){
 
-
-
-
-    public static long[] vergebeneZahlen(){//TODO: muss noch fertig gebaut werden, vielleicht wird die Funktion gar nicht benötigt.
-        int maxWishes = getHighestCountofFirstWishes();
-        int j = 0;
-
-        vergebeneZahlen = new long[maxWishes];
-        for(int i = 0; i < Geschenkezaehler.length; i++){
-            if(Extendprocessing.Geschenkezaehler[i][0] >= 1) {
-                vergebeneZahlen[j] = i;
-                j++;
-            }
-        }
-        return vergebeneZahlen;
     }
+
+
+    public static int countWishes(int input){
+
+    }
+
+
 
 }
