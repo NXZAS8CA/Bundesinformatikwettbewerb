@@ -1,16 +1,17 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Extendprocessing extends Processing {
 
     static long[][] Geschenkezaehler;
-
-    public static int[] IndexOfMultipleNumbers;
+    public static List<Integer> IndexOfMultipleNumbers;
     public static long[] vergebeneZahlen;
 
     public static void main() throws IOException {
         Input.main();//call main input function
         Geschenkezaehler = new long[Input.NumberGifts +1][3];
-        IndexOfMultipleNumbers = new int[10];
+        IndexOfMultipleNumbers = new ArrayList<>();
     }
     public static long[][] countNumbers(){//Zählt die Anzahl der Geschenke in einer Spalte vom Tabellenarray.
         for(int i = 1; i <= Input.NumberGifts; i++){
@@ -36,12 +37,9 @@ public class Extendprocessing extends Processing {
     }
 
     public static void getIndexofMultipleNumbers(int input, int spalte){//Returnt die Indize von Zahlen die mehrfach in einer Spalte vorkommen.
-        int f = 0;
         for(int i = 0; i < Input.Tabellenarray.length; i++){
             if(Input.Tabellenarray[i][spalte] == input){
-                IndexOfMultipleNumbers[f] = i;
-                f++;
-
+                IndexOfMultipleNumbers.add(i);
             }
         }
     }
