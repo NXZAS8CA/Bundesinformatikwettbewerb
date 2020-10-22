@@ -3,9 +3,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Output {
-    public static void main(String[] args) throws IOException {
-        Processing.main();
+public class Output extends Processing{
+    public static void main() throws IOException {
+
         File file = new File("Output.txt");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file));
         bw.write("Schüleranzahl: " + Input.NumberGifts);
@@ -15,8 +15,12 @@ public class Output {
         bw.write("Erfüllte zweite Wünsche:");
         bw.newLine();
         bw.write("Erfüllte dritte Wünsche:");
+        bw.newLine();
+        bw.write("");
+        bw.newLine();
         for(int i = 0; i < Input.NumberGifts; i++){
-            bw.
+            bw.write("Schüler "  + (i+1) + ":");
+            bw.newLine();
 
         }
         bw.close();
