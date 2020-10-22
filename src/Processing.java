@@ -1,12 +1,12 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.lang.*;
 
-import java.util.List;
 
 public class Processing {
-    public static List<int[]> Wunscharray;
-    public static List<int[]> Endergebnisarray;
+    public static List<int[]> Wunscharray;//Für jeden Schüler der erfüllte Wunsch
+    public static List<int[]> Endergebnisarray;//Für jeden Schüler, welches Geschenk er erhalten hat.
     public static boolean Freigabe = true;
     public static int[] Zwischenspeicher;
     public static int[] endergebnis;
@@ -36,7 +36,7 @@ public class Processing {
         System.out.println(Zwischenspeicher[0]);
 
 
-
+        Output.main();
 
     }
 
