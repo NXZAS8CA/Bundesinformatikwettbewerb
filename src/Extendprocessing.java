@@ -73,7 +73,27 @@ public class Extendprocessing extends Processing {
         }
         return counter;
     }*/
-    public static void getBestDistribution(){
+
+
+
+    public static int[] getBestDistribution(){
+        int zwischenzaehler = 0;
+        int counter = 0;
+        int[] best = new int[Input.NumberGifts];
+        for(int i = 0; i < Processing.Wunscharray.size(); i++) {
+            zwischenzaehler = 0;
+            for (int j = 0; j < Processing.Wunscharray.get(i).length; j++) {
+                if (Processing.Wunscharray.get(i)[j] == 1) {
+                    zwischenzaehler++;
+                }
+            }
+            if (zwischenzaehler > counter) {
+                counter = zwischenzaehler;
+                best = Processing.Wunscharray.get(i);
+
+            }
+        }
+        return best;
 
     }
 
