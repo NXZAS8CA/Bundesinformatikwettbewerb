@@ -11,6 +11,7 @@ public class Processing {
     public static int[] Zwischenspeicher;
     public static int[] endergebnis;
     public static int[] wunsch;
+    public static List<Integer> Vergeben;
 
     public static void main(String[] args) throws IOException {
         Extendprocessing.main();//call sort main function
@@ -20,22 +21,17 @@ public class Processing {
         Endergebnisarray = new ArrayList<int[]>();
         endergebnis = new int[Input.NumberGifts];
         wunsch = new int[Input.NumberGifts];
+        Vergeben = new ArrayList<>();
         Zwischenspeicher = new int[Input.NumberGifts];
+
 
         moveSingleNumbers(0);
 
-        Zwischenspeicher = Wunscharray.get(0);
-        //System.out.println(Zwischenspeicher[0]);
-        Debug.printArray(Zwischenspeicher);
-        //System.out.println();
-        moveMultipleNumbers(0, Zwischenspeicher, 0);
+        moveMultipleNumbers(0, Wunscharray.get(0), 0);
         Extendprocessing.getIndexofMultipleNumbers(4, 0);
-        //System.out.println(Input.NumberGifts);
-        Debug.printArraylits(Wunscharray);
+        Debug.printArraylits_Array(Wunscharray);
         Zwischenspeicher = Wunscharray.get(0);
-        //System.out.println(Zwischenspeicher[0]);
-
-
+        //Debug.printArrayList(Vergeben);
         Output.main();
 
     }
@@ -65,27 +61,27 @@ public class Processing {
 
     }
 
-    public static void moveMultipleNumbers(int spalte, int[] arr, int i) {
-        while (i < Extendprocessing.Geschenkezaehler.length) {// i = Geschenk
+    public static void moveMultipleNumbers(int spalte, int[] arr, int x) {
+        for ( int i = x; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte);
+                //Debug.printArrayList(Extendprocessing.IndexOfMultipleNumbers);
                 for (int f = 0; f < Extendprocessing.IndexOfMultipleNumbers.size(); f++) {
+                    //System.out.println(i);
                     int[] arr2 = new int[arr.length];
+                    Debug.printArray(arr);
                     for (int d = 0; d < arr.length; d++) {
                         arr2[d] = arr[d];
                     }
                     int zw = Extendprocessing.IndexOfMultipleNumbers.get(f);
-                    //System.out.println(zw);
+                    System.out.println(zw);
                     arr2[zw] = 1;
+                    Debug.printArray(arr2);
                     Wunscharray.add(arr2);
 
-
+                    moveMultipleNumbers(0, arr2, i + 1);
                 }
             }
-            System.out.println(i);
-            i++;
         }
-
-
     }
 }
