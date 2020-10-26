@@ -11,7 +11,6 @@ public class Extendprocessing extends Processing {
     public static void main() throws IOException {
         Input.main();//call main input function
         Geschenkezaehler = new long[Input.NumberGifts +1][3];
-        IndexOfMultipleNumbers = new ArrayList<>();
     }
     public static long[][] countNumbers(){//Zählt die Anzahl der Geschenke in einer Spalte vom Tabellenarray.
         for(int i = 1; i <= Input.NumberGifts; i++){
@@ -37,6 +36,7 @@ public class Extendprocessing extends Processing {
     }
 
     public static void getIndexofMultipleNumbers(int input, int spalte){//Returnt die Indize von Zahlen die mehrfach in einer Spalte vorkommen.
+        IndexOfMultipleNumbers = new ArrayList<>();
         for(int i = 0; i < Input.Tabellenarray.length; i++){
             if(Input.Tabellenarray[i][spalte] == input){
                 IndexOfMultipleNumbers.add(i);

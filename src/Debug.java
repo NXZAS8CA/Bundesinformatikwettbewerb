@@ -9,6 +9,7 @@ public class Debug extends Processing {
         for(int i = 0; i< input.length; i++){
             System.out.print(input[i]);
         }
+        System.out.println();
     }
     public static void printArraystring(String[] input){
         for(int i = 0; i< input.length; i++){
@@ -24,7 +25,7 @@ public class Debug extends Processing {
             System.out.println("\n");
         }
     }
-    public static void printArraylits(List<int[]> input){
+    public static void printArraylits_Array(List<int[]> input){
         int[] input2 = new int[Input.NumberGifts];
 
         for(int i = 0; i < input.size(); i++){
@@ -37,5 +38,12 @@ public class Debug extends Processing {
             System.out.println();
         }
     }
+    public static void printArrayList (List<Integer> input){
+        for(int i = 0; i < input.size(); i++){
+            System.out.print(input.get(i));
+            System.out.print(",");
+        }
+        System.out.println();
 
+    }
 }
