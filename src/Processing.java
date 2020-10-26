@@ -25,15 +25,15 @@ public class Processing {
         moveSingleNumbers(0);
 
         Zwischenspeicher = Wunscharray.get(0);
-        System.out.println(Zwischenspeicher[0]);
+        //System.out.println(Zwischenspeicher[0]);
         Debug.printArray(Zwischenspeicher);
-        System.out.println();
+        //System.out.println();
         moveMultipleNumbers(0, Zwischenspeicher, 0);
         Extendprocessing.getIndexofMultipleNumbers(4, 0);
         //System.out.println(Input.NumberGifts);
         Debug.printArraylits(Wunscharray);
         Zwischenspeicher = Wunscharray.get(0);
-        System.out.println(Zwischenspeicher[0]);
+        //System.out.println(Zwischenspeicher[0]);
 
 
         Output.main();
@@ -78,18 +78,11 @@ public class Processing {
                     //System.out.println(zw);
                     arr2[zw] = 1;
                     Wunscharray.add(arr2);
-                    for (int a = (i + 1); a < Extendprocessing.IndexOfMultipleNumbers.size(); a++) {
-                        if (Extendprocessing.Geschenkezaehler[a][spalte] > 1) {
-                            int al = Wunscharray.size();
-                            moveMultipleNumbers(0, Wunscharray.get(al), a);
-
-                        }
-
-                    }
 
 
                 }
             }
+            System.out.println(i);
             i++;
         }
 

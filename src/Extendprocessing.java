@@ -78,9 +78,6 @@ public class Extendprocessing extends Processing {
     }
 
 
-    public static int countWishes(int input){
-
-    }
 
 
 
