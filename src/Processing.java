@@ -67,7 +67,7 @@ public class Processing {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte);
                 Debug.printArrayList(Extendprocessing.IndexOfMultipleNumbers);
                 System.out.println();
-                for (int f = 0; f < Extendprocessing.IndexOfMultipleNumbers.size(); f++) {
+                for (int f = 0; f < Extendprocessing.Geschenkezaehler[i][spalte]; f++) {
                     Extendprocessing.getIndexofMultipleNumbers(i, spalte);
                     //System.out.println(f);
                     //System.out.println();

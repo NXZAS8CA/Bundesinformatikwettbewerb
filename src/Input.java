@@ -11,7 +11,7 @@ public class Input extends Extendprocessing {
 
     public static void main() throws IOException {
 
-        File file = new File("Test.joel.txt");
+        File file = new File("Test.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
 
         String NumberStudents = br.readLine();
