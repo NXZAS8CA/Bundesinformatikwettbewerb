@@ -65,22 +65,30 @@ public class Processing {
         for ( int i = x; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte);
-                //Debug.printArrayList(Extendprocessing.IndexOfMultipleNumbers);
+                Debug.printArrayList(Extendprocessing.IndexOfMultipleNumbers);
+                System.out.println();
                 for (int f = 0; f < Extendprocessing.IndexOfMultipleNumbers.size(); f++) {
-                    //System.out.println(i);
+                    Extendprocessing.getIndexofMultipleNumbers(i, spalte);
+                    //System.out.println(f);
+                    //System.out.println();
                     int[] arr2 = new int[arr.length];
                     Debug.printArray(arr);
+
                     for (int d = 0; d < arr.length; d++) {
                         arr2[d] = arr[d];
                     }
+
                     int zw = Extendprocessing.IndexOfMultipleNumbers.get(f);
                     System.out.println(zw);
                     arr2[zw] = 1;
                     Debug.printArray(arr2);
+                    //System.out.println();
                     Wunscharray.add(arr2);
 
                     moveMultipleNumbers(0, arr2, i + 1);
+
                 }
+                System.out.println();
             }
         }
     }
