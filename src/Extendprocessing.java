@@ -45,37 +45,6 @@ public class Extendprocessing extends Processing {
         }
     }
 
-    public static int getHighestNumberofGifts(int input) {//TODO: Weiß nicht mehr was diese Funktion kann...Wird wahrscheinlich nicht mehr benötigt.
-        int Number = 0;
-        for (int i = 0; i < Geschenkezaehler.length; i++) {
-            if (Geschenkezaehler[i][input] > Number) {
-                Number = (int) Geschenkezaehler[i][input];
-            }
-        }
-        return Number;
-    }
-
-    public static int getHighestCountofFirstWishes() {//Zählt die Maximale Anzahl an ersten Wünschen die erfüllt werden können
-        int counter = 0;
-        for (int i = 0; i < Geschenkezaehler.length; i++) {
-            if (Geschenkezaehler[i][0] >= 1) {
-                counter++;
-            }
-        }
-        return counter;
-    }
-
-    /*public static int getScoreofWishes(int Input, int Durchgang){//TODO: Muss noch abgeändert werden...//Zählt die Anzahl an Wünschen(Input) die erfüllt wurde im angegebenen Durchgang.
-        int counter = 0;
-        for(int i = 0; i < Processing.Wunscharray.length; i++){
-            if(Wunscharray[i][Durchgang] == Input){
-                counter++;
-            }
-        }
-        return counter;
-    }*/
-
-
     public static void getBestDistribution(List<int[]> Input) {
         int[] größter = Input.get((Input.size() - 1));
         int inputsize = Input.size();
@@ -113,14 +82,21 @@ public class Extendprocessing extends Processing {
             int[] output = new int[array.length];
 
             for (int j = 0; j < array.length; j++) {
+
                 if (array[j] == 1) {
                     output[j] = (int) Input.Tabellenarray[j][0];
-
-                    if (Vergeben.contains((int) Input.Tabellenarray[j][0]) == false) {
-                        Vergeben.add((int) Input.Tabellenarray[j][0]);
-
-                    }
+                } else if (array[j] == 2) {
+                    output[j] = (int) Input.Tabellenarray[j][1];
+                } else if (array[j] == 3) {
+                    output[j] = (int) Input.Tabellenarray[j][2];
                 }
+
+
+                if (Vergeben.contains((int) Input.Tabellenarray[j][0]) == false) {
+                    Vergeben.add((int) Input.Tabellenarray[j][0]);
+
+                }
+
             }
             Endergebnisarray.add(output);
 
@@ -129,5 +105,20 @@ public class Extendprocessing extends Processing {
         Endergebnisarray.remove(0);
 
     }
+
+
+    public static void verteileLetzteWünsche(List<int[]> input) {
+        for (int i = 0; i < Input.NumberGifts; i++) {
+            if (Vergeben.contains(i) == false) {
+                //TODO: Es soll am Ende durch das Endergebnis gegangen und geschaut werden, welcher Schüler keinen seiner drei Wünsche erfüllt bekommen hat und diesem wird ein übrig gebliebenes Geschenk zugeteilt.
+
+            }
+
+
+        }
+
+
+    }
+
 
 }
