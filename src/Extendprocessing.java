@@ -78,6 +78,7 @@ public class Extendprocessing extends Processing {
 
     public static void getBestDistribution(List<int[]> Input) {
         int[] größter = Input.get((Input.size() - 1));
+        int inputsize = Input.size();
         int iAnzahlGrößter = 0;
         int iAnzahl = 0;
         for (int i = 0; i < größter.length; i++) {
@@ -85,20 +86,32 @@ public class Extendprocessing extends Processing {
                 iAnzahlGrößter++;
             }
         }
-        System.out.println(iAnzahlGrößter);
-        for (int i = 2; i < Input.size(); i++) {
-            int[] zwischen = Input.get(Input.size() - i);
+        //System.out.println(iAnzahlGrößter);
+        //Input.remove(0);
+        for (int i = 1; i <= inputsize; i++) {
+            int[] zwischen = Input.get(inputsize - i);
+            //Debug.printArray(zwischen);
+            iAnzahl = 0;
             for (int f = 0; f < zwischen.length; f++) {
                 if (zwischen[f] == 1) {
                     iAnzahl++;
                 }
             }
+            //System.out.println(iAnzahl);
             if (iAnzahl < iAnzahlGrößter) {
-                Input.remove(Input.size() - i);
+                Input.remove(inputsize - i);
             }
 
         }
+        System.out.println("...");
         Debug.printArraylits_Array(Input);
+        System.out.println("...");
+        Wunscharray = new ArrayList<int[]>();
+        for(int i = 0; i < Input.size(); i++){
+            int[] zw = Input.get(i);
+            Wunscharray.add(zw);
+
+        }
     }
 
 

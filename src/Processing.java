@@ -37,7 +37,9 @@ public class Processing {
         Zwischenspeicher = Wunscharray.get(0);
         //Debug.printArrayList(Vergeben);
         //Joel
-
+        Extendprocessing.getBestDistribution(Wunscharray);
+        System.out.println("...");
+        Debug.printArraylits_Array(Wunscharray);
 
 
 
