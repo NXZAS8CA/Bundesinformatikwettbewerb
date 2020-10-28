@@ -38,7 +38,8 @@ public class Processing {
         Zwischenspeicher = Wunscharray.get(0);
         Extendprocessing.getBestDistribution(Wunscharray);
         Extendprocessing.vergebeGeschenke(Wunscharray);
-        //moveSingleNumbers(1, Wunscharray.size());
+        moveSingleNumbers(1, Wunscharray.size());
+        moveSingleNumbers(2, Wunscharray.size());
         //moveMultipleNumbers(1, Wunscharray.get(0),0 );
         Debug.printArrayList(Vergeben);
         Debug.printArraylists_Array(Wunscharray);
