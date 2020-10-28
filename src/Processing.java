@@ -28,6 +28,8 @@ public class Processing {
         moveSingleNumbers(0);
 
         moveMultipleNumbers(0, Wunscharray.get(0), 0);
+        moveMultipleNumbers(1, Wunscharray.get(0), 0);
+        moveMultipleNumbers(2, Wunscharray.get(0), 0);
         Extendprocessing.getIndexofMultipleNumbers(4, 0);
         Debug.printArraylits_Array(Wunscharray);
         Zwischenspeicher = Wunscharray.get(0);
@@ -62,33 +64,56 @@ public class Processing {
     }
 
     public static void moveMultipleNumbers(int spalte, int[] arr, int x) {
-        for ( int i = x; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
+        for (int i = x; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte);
-                Debug.printArrayList(Extendprocessing.IndexOfMultipleNumbers);
-                System.out.println();
+                //Debug.printArrayList(Extendprocessing.IndexOfMultipleNumbers);
+                //System.out.println();
                 for (int f = 0; f < Extendprocessing.Geschenkezaehler[i][spalte]; f++) {
                     Extendprocessing.getIndexofMultipleNumbers(i, spalte);
                     //System.out.println(f);
                     //System.out.println();
                     int[] arr2 = new int[arr.length];
-                    Debug.printArray(arr);
+                    //Debug.printArray(arr);
 
                     for (int d = 0; d < arr.length; d++) {
                         arr2[d] = arr[d];
                     }
 
                     int zw = Extendprocessing.IndexOfMultipleNumbers.get(f);
-                    System.out.println(zw);
+                    //System.out.println(zw);
                     arr2[zw] = 1;
-                    Debug.printArray(arr2);
+                    //Debug.printArray(arr2);
                     //System.out.println();
-                    Wunscharray.add(arr2);
 
+                    int counterNeu = 0;
+                    for (int h = 0; h < arr2.length; h++) {
+                        if (arr2[h] == 1){
+                            counterNeu++;
+                        }
+
+                    }
+
+                    int counter = 0;
+                    int[] last = Wunscharray.get(Wunscharray.size() - 1);
+
+                    for (int k = 0; k < last.length; k++) {
+                        if (last[k] == 1) {
+                            counter++;
+                        }
+                    }
+
+                    if (counterNeu > counter){
+                        Wunscharray.add(arr2);
+
+                    }
+
+
+                    //Wunscharray.add(arr2);
                     moveMultipleNumbers(0, arr2, i + 1);
 
                 }
-                System.out.println();
+                //System.out.println();
             }
         }
     }
