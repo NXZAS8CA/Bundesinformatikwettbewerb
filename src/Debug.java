@@ -45,7 +45,7 @@ public class Debug extends Processing {
         }
     }
 
-    public static void printArrayList(List<int[]> input) {
+    public static void printArrayList(List<Integer> input) {
         for (int i = 0; i < input.size(); i++) {
             System.out.print(input.get(i));
             System.out.print(",");
