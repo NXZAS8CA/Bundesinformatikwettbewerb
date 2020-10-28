@@ -34,7 +34,6 @@ public class Processing {
 
         //Joel
         Extendprocessing.getBestDistribution(Wunscharray);
-        Debug.printArraylists_Array(Wunscharray);
 
 
         //Simon
@@ -42,6 +41,7 @@ public class Processing {
 
         System.out.println();
         vergebeGeschenke();
+        Debug.printArraylists_Array(Wunscharray);
         Output.main();
 
     }
