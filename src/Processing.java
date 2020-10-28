@@ -12,6 +12,7 @@ public class Processing {
     public static int[] endergebnis;
     public static int[] wunsch;
     public static List<Integer> Vergeben;
+    public static int counter = 0;
 
     public static void main(String[] args) throws IOException {
         Extendprocessing.main();//call sort main function
@@ -20,46 +21,65 @@ public class Processing {
         Wunscharray = new ArrayList<int[]>();
         Endergebnisarray = new ArrayList<int[]>();
         endergebnis = new int[Input.NumberGifts];
+        for (int i = 0; i < Input.NumberGifts; i++) {
+            endergebnis[i] = 0;
+        }
+        Wunscharray.add(endergebnis);
+        Endergebnisarray.add(endergebnis);
+
         wunsch = new int[Input.NumberGifts];
         Vergeben = new ArrayList<>();
         Zwischenspeicher = new int[Input.NumberGifts];
 
 
-        moveSingleNumbers(0);
-
-        moveMultipleNumbers(0, Wunscharray.get(0), 0);
-        moveMultipleNumbers(1, Wunscharray.get(0), 0);
-        moveMultipleNumbers(2, Wunscharray.get(0), 0);
+        moveSingleNumbers(0, Wunscharray.size());
+        //moveMultipleNumbers(0, Wunscharray.get(0), 0);
         Extendprocessing.getIndexofMultipleNumbers(4, 0);
-        Debug.printArraylits_Array(Wunscharray);
         Zwischenspeicher = Wunscharray.get(0);
-        //Debug.printArrayList(Vergeben);
-        Output.main();
+        Extendprocessing.getBestDistribution(Wunscharray);
+        Extendprocessing.vergebeGeschenke(Wunscharray);
+        //moveSingleNumbers(1, Wunscharray.size());
+        //moveMultipleNumbers(1, Wunscharray.get(0),0 );
+        Debug.printArrayList(Vergeben);
+        Debug.printArraylists_Array(Wunscharray);
+
 
     }
 
-    public static void moveSingleNumbers(int spalte) {
-        for (int i = 0; i < 10; i++) {
-            endergebnis[i] = 0;
-        }
-        for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
-            if (Extendprocessing.Geschenkezaehler[i][spalte] == 1) {
-                int schüler = Extendprocessing.getIndexofSingleNumber(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
-                //Feste Verteilung für Wünsche über alle Versuche
-                for (int f = 0; f < endergebnis.length; f++) {
-                    if (endergebnis[f] == i) {
-                        Freigabe = false;
+    public static void moveSingleNumbers(int spalte, int länge) {
+        for (int k = 0; k < länge; k++) {
+            int[] zw = Wunscharray.get(k);
+            for (int l = 0; l < zw.length; l++) {
+                wunsch[l] = zw[l];
+            }
+            for (int i = 0; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
+                if (Extendprocessing.Geschenkezaehler[i][spalte] == 1) {
+                    int schüler = Extendprocessing.getIndexofSingleNumber(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
+                    //Feste Verteilung für Wünsche über alle Versuche
+                    if (Vergeben.contains(i) == false) {
+                        if(wunsch[schüler] == 0){
+                            wunsch[schüler] = (spalte + 1);
+                        }
                     }
                 }
-                if (Freigabe == true) {
-                    endergebnis[schüler] = i;
-                    wunsch[schüler] = (spalte + 1);
+            }
+            for (int l = 0; l < wunsch.length; l++) {
+                zw[l] = wunsch[l];
+            }
 
-                }
+            Wunscharray.set(k, zw);
+
+        }
+
+
+        int[] first = Wunscharray.get(Wunscharray.size() - 1);
+
+        for (int k = 0; k < first.length; k++) {
+            if (first[k] == 1) {
+                counter++;
             }
         }
-        Wunscharray.add(wunsch);
-        Endergebnisarray.add(endergebnis);
+
 
     }
 
@@ -67,54 +87,32 @@ public class Processing {
         for (int i = x; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte);
-                //Debug.printArrayList(Extendprocessing.IndexOfMultipleNumbers);
-                //System.out.println();
                 for (int f = 0; f < Extendprocessing.Geschenkezaehler[i][spalte]; f++) {
                     Extendprocessing.getIndexofMultipleNumbers(i, spalte);
-                    //System.out.println(f);
-                    //System.out.println();
                     int[] arr2 = new int[arr.length];
-                    //Debug.printArray(arr);
-
                     for (int d = 0; d < arr.length; d++) {
                         arr2[d] = arr[d];
                     }
-
                     int zw = Extendprocessing.IndexOfMultipleNumbers.get(f);
-                    //System.out.println(zw);
-                    arr2[zw] = 1;
-                    //Debug.printArray(arr2);
-                    //System.out.println();
+                    arr2[zw] = spalte + 1;
+
 
                     int counterNeu = 0;
                     for (int h = 0; h < arr2.length; h++) {
-                        if (arr2[h] == 1){
+                        if (arr2[h] == spalte + 1) {
                             counterNeu++;
                         }
 
                     }
-
-                    int counter = 0;
-                    int[] last = Wunscharray.get(Wunscharray.size() - 1);
-
-                    for (int k = 0; k < last.length; k++) {
-                        if (last[k] == 1) {
-                            counter++;
-                        }
-                    }
-
-                    if (counterNeu > counter){
+                    if (counterNeu >= counter) {
                         Wunscharray.add(arr2);
-
+                        counter = counterNeu;
                     }
-
-
-                    //Wunscharray.add(arr2);
                     moveMultipleNumbers(0, arr2, i + 1);
-
                 }
-                //System.out.println();
             }
         }
     }
+
+
 }

@@ -10,11 +10,12 @@ public class Extendprocessing extends Processing {
 
     public static void main() throws IOException {
         Input.main();//call main input function
-        Geschenkezaehler = new long[Input.NumberGifts +1][3];
+        Geschenkezaehler = new long[Input.NumberGifts + 1][3];
     }
-    public static long[][] countNumbers(){//Zählt die Anzahl der Geschenke in einer Spalte vom Tabellenarray.
-        for(int i = 1; i <= Input.NumberGifts; i++){
-            for(int y= 0; y < 3; y++) {
+
+    public static long[][] countNumbers() {//Zählt die Anzahl der Geschenke in einer Spalte vom Tabellenarray.
+        for (int i = 1; i <= Input.NumberGifts; i++) {
+            for (int y = 0; y < 3; y++) {
                 for (int j = 0; j < Input.Tabellenarray.length; j++) {
                     if (i == Input.Tabellenarray[j][y]) {
                         Geschenkezaehler[i][y]++;
@@ -25,40 +26,40 @@ public class Extendprocessing extends Processing {
         return Geschenkezaehler;
     }
 
-    public static int getIndexofSingleNumber(int input, int spalte){//Geht nur für Zahlen die einmal in ihrer Spalte vorkommen
+    public static int getIndexofSingleNumber(int input, int spalte) {//Geht nur für Zahlen die einmal in ihrer Spalte vorkommen
         int index = 0;
-        for(int i = 0; i < Input.Tabellenarray.length; i++){
-            if(Input.Tabellenarray[i][spalte] == input){
+        for (int i = 0; i < Input.Tabellenarray.length; i++) {
+            if (Input.Tabellenarray[i][spalte] == input) {
                 index = i;
             }
         }
         return index;
     }
 
-    public static void getIndexofMultipleNumbers(int input, int spalte){//Returnt die Indize von Zahlen die mehrfach in einer Spalte vorkommen.
+    public static void getIndexofMultipleNumbers(int input, int spalte) {//Returnt die Indize von Zahlen die mehrfach in einer Spalte vorkommen.
         IndexOfMultipleNumbers = new ArrayList<>();
-        for(int i = 0; i < Input.Tabellenarray.length; i++){
-            if(Input.Tabellenarray[i][spalte] == input){
+        for (int i = 0; i < Input.Tabellenarray.length; i++) {
+            if (Input.Tabellenarray[i][spalte] == input) {
                 IndexOfMultipleNumbers.add(i);
             }
         }
     }
 
-    public static int getHighestNumberofGifts(int input){//TODO: Weiß nicht mehr was diese Funktion kann...Wird wahrscheinlich nicht mehr benötigt.
+    public static int getHighestNumberofGifts(int input) {//TODO: Weiß nicht mehr was diese Funktion kann...Wird wahrscheinlich nicht mehr benötigt.
         int Number = 0;
-        for (int i = 0; i < Geschenkezaehler.length; i++){
-            if(Geschenkezaehler[i][input] > Number){
+        for (int i = 0; i < Geschenkezaehler.length; i++) {
+            if (Geschenkezaehler[i][input] > Number) {
                 Number = (int) Geschenkezaehler[i][input];
             }
         }
         return Number;
     }
 
-    public static int getHighestCountofFirstWishes(){//Zählt die Maximale Anzahl an ersten Wünschen die erfüllt werden können
+    public static int getHighestCountofFirstWishes() {//Zählt die Maximale Anzahl an ersten Wünschen die erfüllt werden können
         int counter = 0;
-        for(int i= 0; i < Geschenkezaehler.length; i++){
-            if(Geschenkezaehler[i][0] >= 1){
-                counter ++;
+        for (int i = 0; i < Geschenkezaehler.length; i++) {
+            if (Geschenkezaehler[i][0] >= 1) {
+                counter++;
             }
         }
         return counter;
@@ -75,30 +76,58 @@ public class Extendprocessing extends Processing {
     }*/
 
 
-
-    public static int[] getBestDistribution(){
-        int zwischenzaehler = 0;
-        int counter = 0;
-        int[] best = new int[Input.NumberGifts];
-        for(int i = 0; i < Processing.Wunscharray.size(); i++) {
-            zwischenzaehler = 0;
-            for (int j = 0; j < Processing.Wunscharray.get(i).length; j++) {
-                if (Processing.Wunscharray.get(i)[j] == 1) {
-                    zwischenzaehler++;
-                }
-            }
-            if (zwischenzaehler > counter) {
-                counter = zwischenzaehler;
-                best = Processing.Wunscharray.get(i);
-
+    public static void getBestDistribution(List<int[]> Input) {
+        int[] größter = Input.get((Input.size() - 1));
+        int inputsize = Input.size();
+        int iAnzahlGrößter = 0;
+        int iAnzahl = 0;
+        for (int i = 0; i < größter.length; i++) {
+            if (größter[i] == 1) {
+                iAnzahlGrößter++;
             }
         }
-        return best;
+        for (int i = 1; i <= inputsize; i++) {
+            int[] zwischen = Input.get(inputsize - i);
+            iAnzahl = 0;
+            for (int f = 0; f < zwischen.length; f++) {
+                if (zwischen[f] == 1) {
+                    iAnzahl++;
+                }
+            }
+            if (iAnzahl < iAnzahlGrößter) {
+                Input.remove(inputsize - i);
+            }
 
+        }
+        Wunscharray = new ArrayList<int[]>();
+        for (int i = 0; i < Input.size(); i++) {
+            int[] zw = Input.get(i);
+            Wunscharray.add(zw);
+
+        }
     }
 
+    public static void vergebeGeschenke(List<int[]> input) {
+        for (int i = 0; i < input.size(); i++) {
+            int[] array = input.get(i);
+            int[] output = new int[array.length];
+
+            for (int j = 0; j < array.length; j++) {
+                if (array[j] == 1) {
+                    output[j] = (int) Input.Tabellenarray[j][0];
+
+                    if (Vergeben.contains((int) Input.Tabellenarray[j][0]) == false) {
+                        Vergeben.add((int) Input.Tabellenarray[j][0]);
+
+                    }
+                }
+            }
+            Endergebnisarray.add(output);
 
 
+        }
+        Endergebnisarray.remove(0);
 
+    }
 
 }
