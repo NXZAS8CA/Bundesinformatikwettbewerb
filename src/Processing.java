@@ -1,4 +1,3 @@
-import javax.swing.text.TabableView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,13 +32,13 @@ public class Processing {
         //moveMultipleNumbers(1, Wunscharray.get(Wunscharray.size() -1), 0);
         //moveMultipleNumbers(2, Wunscharray.get(Wunscharray.size() -1), 0);
         Extendprocessing.getIndexofMultipleNumbers(4, 0);
-        Debug.printArraylits_Array(Wunscharray);
+        Debug.printArraylists_Array(Wunscharray);
         Zwischenspeicher = Wunscharray.get(0);
         //Debug.printArrayList(Vergeben);
         //Joel
         Extendprocessing.getBestDistribution(Wunscharray);
         System.out.println("...");
-        Debug.printArraylits_Array(Wunscharray);
+        Debug.printArraylists_Array(Wunscharray);
 
 
 
@@ -62,8 +61,8 @@ public class Processing {
 
 
 
-
-        Debug.printArray(vergebeGeschenke());
+        System.out.println();
+        Debug.printArraylists_Array(Endergebnisarray);
         Output.main();
 
     }
@@ -145,14 +144,22 @@ public class Processing {
             }
         }
     }
-    public static int[] vergebeGeschenke(){
-        int[] first = Wunscharray.get(Wunscharray.size()-1);
-        int[] output = new int[Input.NumberGifts];
-        for(int i = 0; i< first.length; i++) {
-            if (first[i] == 1) {
-                output[i] = (int) Input.Tabellenarray[i][0];
+    public static void vergebeGeschenke(){
+        for(int i = 0; i <= Wunscharray.size(); i++){
+            int[] array = Wunscharray.get(i);
+            int[] output = new int[array.length];
+
+            for(int j = 0; j< array.length; j++) {
+                if (array[j] == 1) {
+                    output[j] = (int) Input.Tabellenarray[j][0];
+                }
+                Endergebnisarray.add(output);
             }
+
+
         }
-        return output;
+
+
+
     }
 }
