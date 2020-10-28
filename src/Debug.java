@@ -6,8 +6,10 @@ public class Debug extends Processing {
 
     }
     public static void printArray(int[] input){
+        System.out.println();
         for(int i = 0; i< input.length; i++){
             System.out.print(input[i]);
+            System.out.print(",");
         }
         System.out.println();
     }

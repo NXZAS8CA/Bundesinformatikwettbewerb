@@ -1,3 +1,4 @@
+import javax.swing.text.TabableView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +30,15 @@ public class Processing {
         moveSingleNumbers(0);
 
         moveMultipleNumbers(0, Wunscharray.get(0), 0);
-        //moveMultipleNumbers(1, Wunscharray.get(0), 0);
-        //moveMultipleNumbers(2, Wunscharray.get(0), 0);
+        //moveMultipleNumbers(1, Wunscharray.get(Wunscharray.size() -1), 0);
+        //moveMultipleNumbers(2, Wunscharray.get(Wunscharray.size() -1), 0);
         Extendprocessing.getIndexofMultipleNumbers(4, 0);
         Debug.printArraylits_Array(Wunscharray);
         Zwischenspeicher = Wunscharray.get(0);
         //Debug.printArrayList(Vergeben);
+
+
+        Debug.printArray(vergebeGeschenke());
         Output.main();
 
     }
@@ -79,24 +83,21 @@ public class Processing {
         for (int i = x; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte);
-                //Debug.printArrayList(Extendprocessing.IndexOfMultipleNumbers);
-                //System.out.println();
+
                 for (int f = 0; f < Extendprocessing.Geschenkezaehler[i][spalte]; f++) {
                     Extendprocessing.getIndexofMultipleNumbers(i, spalte);
-                    //System.out.println(f);
-                    //System.out.println();
+
                     int[] arr2 = new int[arr.length];
-                    //Debug.printArray(arr);
+
 
                     for (int d = 0; d < arr.length; d++) {
                         arr2[d] = arr[d];
                     }
 
                     int zw = Extendprocessing.IndexOfMultipleNumbers.get(f);
-                    //System.out.println(zw);
-                    arr2[zw] = 1;
-                    //Debug.printArray(arr2);
-                    //System.out.println();
+
+                    arr2[zw] = spalte +1;
+
 
                     int counterNeu = 0;
                     for (int h = 0; h < arr2.length; h++) {
@@ -113,12 +114,20 @@ public class Processing {
                     }
 
 
-                    //Wunscharray.add(arr2);
                     moveMultipleNumbers(0, arr2, i + 1);
 
                 }
-                //System.out.println();
             }
         }
+    }
+    public static int[] vergebeGeschenke(){
+        int[] first = Wunscharray.get(Wunscharray.size()-1);
+        int[] output = new int[Input.NumberGifts];
+        for(int i = 0; i< first.length; i++) {
+            if (first[i] == 1) {
+                output[i] = (int) Input.Tabellenarray[i][0];
+            }
+        }
+        return output;
     }
 }

@@ -1,4 +1,4 @@
-Schüleranzahl: 30
+Schüleranzahl: 10
 Erfüllte erste Wünsche: 
 Erfüllte zweite Wünsche:
 Erfüllte dritte Wünsche:
@@ -13,23 +13,3 @@ Schüler 7:
 Schüler 8:
 Schüler 9:
 Schüler 10:
-Schüler 11:
-Schüler 12:
-Schüler 13:
-Schüler 14:
-Schüler 15:
-Schüler 16:
-Schüler 17:
-Schüler 18:
-Schüler 19:
-Schüler 20:
-Schüler 21:
-Schüler 22:
-Schüler 23:
-Schüler 24:
-Schüler 25:
-Schüler 26:
-Schüler 27:
-Schüler 28:
-Schüler 29:
-Schüler 30:
