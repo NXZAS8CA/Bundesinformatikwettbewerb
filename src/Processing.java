@@ -36,6 +36,29 @@ public class Processing {
         Debug.printArraylits_Array(Wunscharray);
         Zwischenspeicher = Wunscharray.get(0);
         //Debug.printArrayList(Vergeben);
+        //Joel
+
+
+
+
+
+
+
+
+
+
+
+
+        //Simon
+
+
+
+
+
+
+
+
+
 
 
         Debug.printArray(vergebeGeschenke());
