@@ -41,7 +41,7 @@ public class Processing {
 
         System.out.println();
         vergebeGeschenke();
-        Debug.printArraylists_Array(Endergebnisarray);
+        Debug.printArraylists_Array(Wunscharray);
         Output.main();
 
     }
