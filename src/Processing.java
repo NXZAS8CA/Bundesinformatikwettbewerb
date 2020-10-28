@@ -41,7 +41,7 @@ public class Processing {
 
         System.out.println();
         vergebeGeschenke();
-        Debug.printArraylists_Array(Wunscharray);
+        Debug.printArraylists_Array(Endergebnisarray);
         Output.main();
 
     }
@@ -124,7 +124,7 @@ public class Processing {
     }
 
     public static void vergebeGeschenke() {
-        for (int i = 0; i < Wunscharray.size(); i++) {
+        for (int i = 0; i < 6; i++) {
             int[] array = Wunscharray.get(i);
             int[] output = new int[array.length];
 
@@ -132,8 +132,8 @@ public class Processing {
                 if (array[j] == 1) {
                     output[j] = (int) Input.Tabellenarray[j][0];
                 }
-                Endergebnisarray.add(output);
             }
+            Endergebnisarray.add(output);
 
 
         }
