@@ -25,40 +25,18 @@ public class Processing {
         Vergeben = new ArrayList<>();
         Zwischenspeicher = new int[Input.NumberGifts];
 
-
         moveSingleNumbers(0);
-
         moveMultipleNumbers(0, Wunscharray.get(0), 0);
         //moveMultipleNumbers(1, Wunscharray.get(Wunscharray.size() -1), 0);
         //moveMultipleNumbers(2, Wunscharray.get(Wunscharray.size() -1), 0);
         Extendprocessing.getIndexofMultipleNumbers(4, 0);
-        Debug.printArraylists_Array(Wunscharray);
         Zwischenspeicher = Wunscharray.get(0);
-        //Debug.printArrayList(Vergeben);
+
         //Joel
         Extendprocessing.getBestDistribution(Wunscharray);
-        System.out.println("...");
-        Debug.printArraylists_Array(Wunscharray);
-
-
-
-
-
-
-
-
-
 
 
         //Simon
-
-
-
-
-
-
-
-
 
 
         System.out.println();
@@ -91,7 +69,6 @@ public class Processing {
         Endergebnisarray.add(endergebnis);
 
 
-
         int[] first = Wunscharray.get(Wunscharray.size() - 1);
 
         for (int k = 0; k < first.length; k++) {
@@ -120,18 +97,18 @@ public class Processing {
 
                     int zw = Extendprocessing.IndexOfMultipleNumbers.get(f);
 
-                    arr2[zw] = spalte +1;
+                    arr2[zw] = spalte + 1;
 
 
                     int counterNeu = 0;
                     for (int h = 0; h < arr2.length; h++) {
-                        if (arr2[h] == 1){
+                        if (arr2[h] == 1) {
                             counterNeu++;
                         }
 
                     }
 
-                   if (counterNeu >= counter){
+                    if (counterNeu >= counter) {
                         Wunscharray.add(arr2);
                         counter = counterNeu;
                         System.out.println(".");
@@ -144,12 +121,13 @@ public class Processing {
             }
         }
     }
-    public static void vergebeGeschenke(){
-        for(int i = 0; i <= Wunscharray.size(); i++){
+
+    public static void vergebeGeschenke() {
+        for (int i = 0; i <= Wunscharray.size(); i++) {
             int[] array = Wunscharray.get(i);
             int[] output = new int[array.length];
 
-            for(int j = 0; j< array.length; j++) {
+            for (int j = 0; j < array.length; j++) {
                 if (array[j] == 1) {
                     output[j] = (int) Input.Tabellenarray[j][0];
                 }
@@ -158,7 +136,6 @@ public class Processing {
 
 
         }
-
 
 
     }
