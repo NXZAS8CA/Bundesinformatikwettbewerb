@@ -107,5 +107,27 @@ public class Extendprocessing extends Processing {
         }
     }
 
+    public static void vergebeGeschenke(List<int[]> input) {
+        for (int i = 0; i < input.size(); i++) {
+            int[] array = input.get(i);
+            int[] output = new int[array.length];
+
+            for (int j = 0; j < array.length; j++) {
+                if (array[j] == 1) {
+                    output[j] = (int) Input.Tabellenarray[j][0];
+
+                    if (Vergeben.contains((int) Input.Tabellenarray[j][0]) == false) {
+                        Vergeben.add((int) Input.Tabellenarray[j][0]);
+
+                    }
+                }
+            }
+            Endergebnisarray.add(output);
+
+
+        }
+        Endergebnisarray.remove(0);
+
+    }
 
 }

@@ -37,7 +37,7 @@ public class Processing {
         Extendprocessing.getIndexofMultipleNumbers(4, 0);
         Zwischenspeicher = Wunscharray.get(0);
         Extendprocessing.getBestDistribution(Wunscharray);
-        vergebeGeschenke(Wunscharray);
+        Extendprocessing.vergebeGeschenke(Wunscharray);
         //moveSingleNumbers(1, Wunscharray.size());
         //moveMultipleNumbers(1, Wunscharray.get(0),0 );
         Debug.printArrayList(Vergeben);
@@ -114,26 +114,5 @@ public class Processing {
         }
     }
 
-    public static void vergebeGeschenke(List<int[]> input) {
-        for (int i = 0; i < input.size(); i++) {
-            int[] array = input.get(i);
-            int[] output = new int[array.length];
 
-            for (int j = 0; j < array.length; j++) {
-                if (array[j] == 1) {
-                    output[j] = (int) Input.Tabellenarray[j][0];
-
-                    if (Vergeben.contains((int) Input.Tabellenarray[j][0]) == false) {
-                        Vergeben.add((int) Input.Tabellenarray[j][0]);
-
-                    }
-                }
-            }
-            Endergebnisarray.add(output);
-
-
-        }
-        Endergebnisarray.remove(0);
-
-    }
 }
