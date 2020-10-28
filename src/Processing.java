@@ -34,13 +34,13 @@ public class Processing {
 
         //Joel
         Extendprocessing.getBestDistribution(Wunscharray);
+        Debug.printArraylists_Array(Wunscharray);
 
 
         //Simon
 
 
         System.out.println();
-
         vergebeGeschenke();
         Output.main();
 
