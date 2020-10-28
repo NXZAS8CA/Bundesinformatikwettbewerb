@@ -40,6 +40,7 @@ public class Processing {
 
 
         System.out.println();
+        vergebeGeschenke();
         Debug.printArraylists_Array(Endergebnisarray);
         Output.main();
 
@@ -123,7 +124,7 @@ public class Processing {
     }
 
     public static void vergebeGeschenke() {
-        for (int i = 0; i <= Wunscharray.size(); i++) {
+        for (int i = 0; i < Wunscharray.size(); i++) {
             int[] array = Wunscharray.get(i);
             int[] output = new int[array.length];
 
