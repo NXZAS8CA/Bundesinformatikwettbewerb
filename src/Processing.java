@@ -29,19 +29,32 @@ public class Processing {
 
         wunsch = new int[Input.NumberGifts];
         Vergeben = new ArrayList<>();
-        Zwischenspeicher = new int[Input.NumberGifts];
+        //Zwischenspeicher = new int[Input.NumberGifts];
 
-
+        //-----------------------------------------------------
         moveSingleNumbers(0, Wunscharray.size());
-        //moveMultipleNumbers(0, Wunscharray.get(0), 0);
-        Extendprocessing.getIndexofMultipleNumbers(4, 0);
-        Zwischenspeicher = Wunscharray.get(0);
+        moveMultipleNumbers(0, Wunscharray.get(0), 0);
+        //Extendprocessing.getIndexofMultipleNumbers(4, 0);//TODO: Hat meiner Meinung nach keinen Zweck.
         Extendprocessing.getBestDistribution(Wunscharray);
         Extendprocessing.vergebeGeschenke(Wunscharray);
-        //moveSingleNumbers(1, Wunscharray.size());
-        //moveMultipleNumbers(1, Wunscharray.get(0),0 );
-        Debug.printArrayList(Vergeben);
+        //------------------------------------------------------
+        moveSingleNumbers(1, Wunscharray.size());
+        moveMultipleNumbers(1, Wunscharray.get(0),0 );
+        Extendprocessing.getBestDistribution(Wunscharray);
+        Extendprocessing.vergebeGeschenke(Wunscharray);
+        //------------------------------------------------------
+        moveSingleNumbers(2, Wunscharray.size());
+        moveMultipleNumbers(2, Wunscharray.get(0),0 );
+        Extendprocessing.getBestDistribution(Wunscharray);
+        Extendprocessing.vergebeGeschenke(Wunscharray);
+
+
+
+
+
         Debug.printArraylists_Array(Wunscharray);
+        System.out.println();
+        Debug.printArrayList(Vergeben);
 
 
     }

@@ -76,8 +76,8 @@ public class Extendprocessing extends Processing {
         }
     }
 
-    public static void vergebeGeschenke(List<int[]> input) {
-        for (int i = 0; i < input.size(); i++) {
+    public static void vergebeGeschenke(List<int[]> input) {//TODO: muss wahrscheinlich nochmal angepasst werden, besonders seine Benutzung
+        for (int i = 0; i < input.size(); i++) {//TODO: die Funktion sollte eher jedes mal in der Verteilung ausgeführt werden, damit man unterschiedlich Zahlen vergeben kann in der Verteilung und nicht nach der Verteilung
             int[] array = input.get(i);
             int[] output = new int[array.length];
 
