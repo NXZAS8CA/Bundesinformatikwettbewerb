@@ -14,6 +14,8 @@ public class Extendprocessing extends Processing {
     }
 
     public static long[][] countNumbers() {//Zählt die Anzahl der Geschenke in einer Spalte vom Tabellenarray.
+        System.out.println("countNumbers wird ausgeführt...");
+
         for (int i = 1; i <= Input.NumberGifts; i++) {
             for (int y = 0; y < 3; y++) {
                 for (int j = 0; j < Input.Tabellenarray.length; j++) {
@@ -27,6 +29,7 @@ public class Extendprocessing extends Processing {
     }
 
     public static int getIndexofSingleNumber(int input, int spalte) {//Geht nur für Zahlen die einmal in ihrer Spalte vorkommen
+        System.out.println("getIndexofSingleNumber wird ausgeführt...");
         int index = 0;
         for (int i = 0; i < Input.Tabellenarray.length; i++) {
             if (Input.Tabellenarray[i][spalte] == input) {
@@ -37,6 +40,7 @@ public class Extendprocessing extends Processing {
     }
 
     public static void getIndexofMultipleNumbers(int input, int spalte) {//Returnt die Indize von Zahlen die mehrfach in einer Spalte vorkommen.
+        System.out.println("getIndexofMultipleNumbers wird ausgeführt...");
         IndexOfMultipleNumbers = new ArrayList<>();
         for (int i = 0; i < Input.Tabellenarray.length; i++) {
             if (Input.Tabellenarray[i][spalte] == input) {
@@ -46,6 +50,7 @@ public class Extendprocessing extends Processing {
     }
 
     public static void getBestDistribution(List<int[]> Input) {
+        System.out.println("getBestDistribution wird ausgeführt...");
         int[] größter = Input.get((Input.size() - 1));
         int inputsize = Input.size();
         int iAnzahlGrößter = 0;
@@ -77,6 +82,7 @@ public class Extendprocessing extends Processing {
     }
 
     public static void vergebeGeschenke(List<int[]> input) {//TODO: muss wahrscheinlich nochmal angepasst werden, besonders seine Benutzung.....
+        System.out.println("vergebeGeschenke wird ausgeführt...");
         for (int i = 0; i < input.size(); i++) {//TODO: die Funktion sollte eher jedes mal in der Verteilung ausgeführt werden, damit man unterschiedlich Zahlen vergeben kann in der Verteilung und nicht nach der Verteilung
             int[] array = input.get(i);
             int[] output = new int[array.length];
@@ -108,6 +114,7 @@ public class Extendprocessing extends Processing {
 
 
     public static void verteileLetzteWünsche(List<int[]> input) {
+        System.out.println("verteileLetzeWünsche wird ausgeführt...");
         for (int i = 0; i < Input.NumberGifts; i++) {
             if (Vergeben.contains(i) == false) {
                 //TODO: Es soll am Ende durch das Endergebnis gegangen und geschaut werden, welcher Schüler keinen seiner drei Wünsche erfüllt bekommen hat und diesem wird ein übrig gebliebenes Geschenk zugeteilt.
