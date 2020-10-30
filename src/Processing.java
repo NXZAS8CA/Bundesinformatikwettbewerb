@@ -17,8 +17,8 @@ public class Processing {
     public static void main(String[] args) throws IOException {
         Extendprocessing.main();//call sort main function
         Extendprocessing.countNumbers(); //returnt Geschenkezähler
-
-        Wunscharray = new ArrayList<int[]>();
+        int wunscharraylänge = 0;
+                Wunscharray = new ArrayList<int[]>();
         Endergebnisarray = new ArrayList<int[]>();
         endergebnis = new int[Input.NumberGifts];
         for (int i = 0; i < Input.NumberGifts; i++) {
@@ -33,21 +33,39 @@ public class Processing {
 
 
         moveSingleNumbers(0, Wunscharray.size());
-        //moveMultipleNumbers(0, Wunscharray.get(0), 0);
-        Extendprocessing.getIndexofMultipleNumbers(4, 0);
-        Zwischenspeicher = Wunscharray.get(0);
-        Extendprocessing.getBestDistribution(Wunscharray);
+        wunscharraylänge = Wunscharray.size();
+        for(int i = 0; i < wunscharraylänge; i++){
+            moveMultipleNumbers(0, Wunscharray.get(i), 0);
+        }
+        Extendprocessing.getBestDistribution(Wunscharray, 1);
         Extendprocessing.vergebeGeschenke(Wunscharray);
-        moveSingleNumbers(1, Wunscharray.size());
-        moveSingleNumbers(2, Wunscharray.size());
-        //moveMultipleNumbers(1, Wunscharray.get(0),0 );
-        Debug.printArrayList(Vergeben);
         Debug.printArraylists_Array(Wunscharray);
+
+        moveSingleNumbers(1,Wunscharray.size());
+        wunscharraylänge = Wunscharray.size();
+        for(int i = 0; i < 1; i++){
+            System.out.print("moveMultibleNumbers at:");
+            System.out.println(i);
+            moveMultipleNumbers(1, Wunscharray.get(i), 0);
+        }
+
+
+        /*
+        System.out.println("----");
+        Debug.printArraylists_Array(Wunscharray);
+        Extendprocessing.getBestDistribution(Wunscharray, 2);
+
+
+*/
+        System.out.println("----");
+        Debug.printArraylists_Array(Wunscharray);
+        Debug.printArrayList(Vergeben);
 
 
     }
 
     public static void moveSingleNumbers(int spalte, int länge) {
+        System.out.println("moveSingleNumbers");
         for (int k = 0; k < länge; k++) {
             int[] zw = Wunscharray.get(k);
             for (int l = 0; l < zw.length; l++) {
@@ -74,17 +92,20 @@ public class Processing {
 
 
         int[] first = Wunscharray.get(Wunscharray.size() - 1);
-
+        counter = 0;
         for (int k = 0; k < first.length; k++) {
-            if (first[k] == 1) {
+            if (first[k] == spalte + 1) {
                 counter++;
             }
         }
+        System.out.print("Counter");
+        System.out.println(counter);
 
 
     }
 
     public static void moveMultipleNumbers(int spalte, int[] arr, int x) {
+
         for (int i = x; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte);
@@ -95,7 +116,9 @@ public class Processing {
                         arr2[d] = arr[d];
                     }
                     int zw = Extendprocessing.IndexOfMultipleNumbers.get(f);
-                    arr2[zw] = spalte + 1;
+                    if(arr[zw] == 0 && Vergeben.contains(i) == false){
+                        arr2[zw] = spalte + 1;
+                    }
 
 
                     int counterNeu = 0;
@@ -105,7 +128,7 @@ public class Processing {
                         }
 
                     }
-                    if (counterNeu >= counter) {
+                    if (counterNeu >= counter && counterNeu != 0) {
                         Wunscharray.add(arr2);
                         counter = counterNeu;
                     }

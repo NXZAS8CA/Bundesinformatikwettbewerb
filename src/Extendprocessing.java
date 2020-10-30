@@ -49,14 +49,15 @@ public class Extendprocessing extends Processing {
         }
     }
 
-    public static void getBestDistribution(List<int[]> Input) {
+    public static void getBestDistribution(List<int[]> Input, int wunsch) {
+        System.out.println("getBestDistribiution");
         System.out.println("getBestDistribution wird ausgeführt...");
         int[] größter = Input.get((Input.size() - 1));
         int inputsize = Input.size();
         int iAnzahlGrößter = 0;
         int iAnzahl = 0;
         for (int i = 0; i < größter.length; i++) {
-            if (größter[i] == 1) {
+            if (größter[i] == wunsch) {
                 iAnzahlGrößter++;
             }
         }
@@ -64,7 +65,7 @@ public class Extendprocessing extends Processing {
             int[] zwischen = Input.get(inputsize - i);
             iAnzahl = 0;
             for (int f = 0; f < zwischen.length; f++) {
-                if (zwischen[f] == 1) {
+                if (zwischen[f] == wunsch) {
                     iAnzahl++;
                 }
             }
