@@ -40,6 +40,9 @@ public class Processing {
         }
         Extendprocessing.getBestDistribution(Wunscharray, 1);
         Extendprocessing.vergebeGeschenke(Wunscharray, 0);
+        System.out.println("erster print");
+        Debug.printArraylists_Array(Wunscharray);
+        Debug.printArrayList(Vergeben);
 
         //------------------------------------------------
         wunscharraylänge = Wunscharray.size();
@@ -50,6 +53,9 @@ public class Processing {
         }
         Extendprocessing.getBestDistribution(Wunscharray, 2);
         Extendprocessing.vergebeGeschenke(Wunscharray, 1);
+        System.out.println("zweiter print");
+        Debug.printArraylists_Array(Wunscharray);
+        Debug.printArrayList(Vergeben);
 
         //------------------------------------------------
         wunscharraylänge = Wunscharray.size();
@@ -60,7 +66,6 @@ public class Processing {
         }
         Extendprocessing.getBestDistribution(Wunscharray, 3);
         Extendprocessing.vergebeGeschenke(Wunscharray, 1);
-
 
 
         System.out.println("Finaler print");
@@ -122,9 +127,6 @@ public class Processing {
                     int zw = Extendprocessing.IndexOfMultipleNumbers.get(f);
                     if (arr[zw] == 0 && Vergeben.contains(i) == false) {
                         arr2[zw] = spalte + 1;
-                        System.out.print(zw);
-                        System.out.println("...");
-                        Debug.printArray(arr2);
                     }
                     int counterNeu = 0;
                     for (int h = 0; h < arr2.length; h++) {

@@ -110,8 +110,6 @@ public class Extendprocessing extends Processing {
     }
 
 
-
-
     public static void verteileLetzteWünsche(List<int[]> input) {
         System.out.println("verteileLetzeWünsche wird ausgeführt...");
         for (int i = 0; i < Input.NumberGifts; i++) {
@@ -125,6 +123,7 @@ public class Extendprocessing extends Processing {
 
 
     }
+
 
 
 }
