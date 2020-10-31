@@ -18,7 +18,7 @@ public class Processing {
         Extendprocessing.main();//call sort main function
         Extendprocessing.countNumbers(); //returnt Geschenkezähler
         int wunscharraylänge = 0;
-                Wunscharray = new ArrayList<int[]>();
+        Wunscharray = new ArrayList<int[]>();
         Endergebnisarray = new ArrayList<int[]>();
         endergebnis = new int[Input.NumberGifts];
         for (int i = 0; i < Input.NumberGifts; i++) {
@@ -34,21 +34,25 @@ public class Processing {
 
         moveSingleNumbers(0, Wunscharray.size());
         wunscharraylänge = Wunscharray.size();
-        for(int i = 0; i < wunscharraylänge; i++){
+        for (int i = 0; i < wunscharraylänge; i++) {
             moveMultipleNumbers(0, Wunscharray.get(i), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 1);
-        Extendprocessing.vergebeGeschenke(Wunscharray);
+        Extendprocessing.vergebeGeschenke(Wunscharray, 0);
+        Debug.printArrayList(Vergeben);
         Debug.printArraylists_Array(Wunscharray);
 
-        moveSingleNumbers(1,Wunscharray.size());
+        moveSingleNumbers(1, Wunscharray.size());
         wunscharraylänge = Wunscharray.size();
-        for(int i = 0; i < 1; i++){
-            System.out.print("moveMultibleNumbers at:");
-            System.out.println(i);
-            moveMultipleNumbers(1, Wunscharray.get(i), 0);
+        System.out.print("Wunscharraylänge:");
+        System.out.println(wunscharraylänge);
+        for(int t = 0; t < wunscharraylänge; t++){
+            moveMultipleNumbers(1, Wunscharray.get(t), 0);
         }
+        Extendprocessing.getBestDistribution(Wunscharray, 2);
+        Extendprocessing.vergebeGeschenke(Wunscharray, 1);
 
+        moveSingleNumbers(2, Wunscharray.size());
 
         /*
         System.out.println("----");
@@ -57,11 +61,9 @@ public class Processing {
 
 
 */
-        System.out.println("----");
+        System.out.println("Finaler print");
         Debug.printArraylists_Array(Wunscharray);
         Debug.printArrayList(Vergeben);
-
-
     }
 
     public static void moveSingleNumbers(int spalte, int länge) {
@@ -76,7 +78,7 @@ public class Processing {
                     int schüler = Extendprocessing.getIndexofSingleNumber(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
                     //Feste Verteilung für Wünsche über alle Versuche
                     if (Vergeben.contains(i) == false) {
-                        if(wunsch[schüler] == 0){
+                        if (wunsch[schüler] == 0) {
                             wunsch[schüler] = (spalte + 1);
                         }
                     }
@@ -116,11 +118,12 @@ public class Processing {
                         arr2[d] = arr[d];
                     }
                     int zw = Extendprocessing.IndexOfMultipleNumbers.get(f);
-                    if(arr[zw] == 0 && Vergeben.contains(i) == false){
+                    if (arr[zw] == 0 && Vergeben.contains(i) == false) {
                         arr2[zw] = spalte + 1;
+                        System.out.print(zw);
+                        System.out.println("...");
+                        Debug.printArray(arr2);
                     }
-
-
                     int counterNeu = 0;
                     for (int h = 0; h < arr2.length; h++) {
                         if (arr2[h] == spalte + 1) {
@@ -128,11 +131,20 @@ public class Processing {
                         }
 
                     }
+                    int[] arr3 = new int[arr2.length];
                     if (counterNeu >= counter && counterNeu != 0) {
-                        Wunscharray.add(arr2);
+                        for(int p = 0; p < arr2.length; p++){
+                            arr3[p] = arr2[p];
+                        }
+                        Wunscharray.add(arr3);
                         counter = counterNeu;
                     }
-                    moveMultipleNumbers(0, arr2, i + 1);
+                    if(spalte == 0){
+                        moveMultipleNumbers(0, arr2, i + 1);
+                    }
+                    else{
+                        moveMultipleNumbers(0, arr3, i + 1);
+                    }
                 }
             }
         }

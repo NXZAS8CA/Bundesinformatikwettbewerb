@@ -29,7 +29,7 @@ public class Extendprocessing extends Processing {
     }
 
     public static int getIndexofSingleNumber(int input, int spalte) {//Geht nur für Zahlen die einmal in ihrer Spalte vorkommen
-        System.out.println("getIndexofSingleNumber wird ausgeführt...");
+        //System.out.println("getIndexofSingleNumber wird ausgeführt...");
         int index = 0;
         for (int i = 0; i < Input.Tabellenarray.length; i++) {
             if (Input.Tabellenarray[i][spalte] == input) {
@@ -40,7 +40,7 @@ public class Extendprocessing extends Processing {
     }
 
     public static void getIndexofMultipleNumbers(int input, int spalte) {//Returnt die Indize von Zahlen die mehrfach in einer Spalte vorkommen.
-        System.out.println("getIndexofMultipleNumbers wird ausgeführt...");
+        //System.out.println("getIndexofMultipleNumbers wird ausgeführt...");
         IndexOfMultipleNumbers = new ArrayList<>();
         for (int i = 0; i < Input.Tabellenarray.length; i++) {
             if (Input.Tabellenarray[i][spalte] == input) {
@@ -82,7 +82,7 @@ public class Extendprocessing extends Processing {
         }
     }
 
-    public static void vergebeGeschenke(List<int[]> input) {//TODO: muss wahrscheinlich nochmal angepasst werden, besonders seine Benutzung.....
+    public static void vergebeGeschenke(List<int[]> input, int spalte) {//TODO: muss wahrscheinlich nochmal angepasst werden, besonders seine Benutzung.....
         System.out.println("vergebeGeschenke wird ausgeführt...");
         for (int i = 0; i < input.size(); i++) {//TODO: die Funktion sollte eher jedes mal in der Verteilung ausgeführt werden, damit man unterschiedlich Zahlen vergeben kann in der Verteilung und nicht nach der Verteilung
             int[] array = input.get(i);
@@ -91,16 +91,12 @@ public class Extendprocessing extends Processing {
             for (int j = 0; j < array.length; j++) {
 
                 if (array[j] == 1) {
-                    output[j] = (int) Input.Tabellenarray[j][0];
-                } else if (array[j] == 2) {
-                    output[j] = (int) Input.Tabellenarray[j][1];
-                } else if (array[j] == 3) {
-                    output[j] = (int) Input.Tabellenarray[j][2];
+                    output[j] = (int) Input.Tabellenarray[j][spalte];
                 }
 
 
-                if (Vergeben.contains((int) Input.Tabellenarray[j][0]) == false) {
-                    Vergeben.add((int) Input.Tabellenarray[j][0]);
+                if (Vergeben.contains((int) Input.Tabellenarray[j][spalte]) == false) {
+                    Vergeben.add((int) Input.Tabellenarray[j][spalte]);
 
                 }
 
@@ -112,6 +108,8 @@ public class Extendprocessing extends Processing {
         Endergebnisarray.remove(0);
 
     }
+
+
 
 
     public static void verteileLetzteWünsche(List<int[]> input) {
