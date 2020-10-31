@@ -14,7 +14,7 @@ public class Processing {
     public static List<Integer> Vergeben;
     public static int counter = 0;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {//TODO: crasht bei test6 weil outofmemory
         Extendprocessing.main();//call sort main function
         Extendprocessing.countNumbers(); //returnt Geschenkezähler
         int wunscharraylänge = 0;
@@ -42,6 +42,7 @@ public class Processing {
         Extendprocessing.test(Wunscharray);
         System.out.println("erster print");
         Debug.printArraylists_Array(Wunscharray);
+        System.out.println();
         Debug.printArrayList(Vergeben);
 
         //------------------------------------------------
@@ -55,6 +56,7 @@ public class Processing {
         Extendprocessing.test(Wunscharray);
         System.out.println("zweiter print");
         Debug.printArraylists_Array(Wunscharray);
+        System.out.println();
         Debug.printArrayList(Vergeben);
 
         //------------------------------------------------
@@ -70,6 +72,7 @@ public class Processing {
 
         System.out.println("Finaler print");
         Debug.printArraylists_Array(Wunscharray);
+        System.out.println();
         Debug.printArrayList(Vergeben);
     }
 
@@ -105,7 +108,7 @@ public class Processing {
                 counter++;
             }
         }
-        System.out.print("Counter");
+        System.out.print("Counter: ");
         System.out.println(counter);
 
 

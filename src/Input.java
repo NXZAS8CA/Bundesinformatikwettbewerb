@@ -12,7 +12,7 @@ public class Input extends Extendprocessing {
 
     public static void main() throws IOException {
 
-        File file = new File("Test.txt");
+        File file = new File("Test6.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
 
         String NumberStudents = br.readLine();
