@@ -39,7 +39,7 @@ public class Processing {
             moveMultipleNumbers(0, Wunscharray.get(i), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 1);
-        Extendprocessing.vergebeGeschenke(Wunscharray, 0);
+        Extendprocessing.test(Wunscharray);
         System.out.println("erster print");
         Debug.printArraylists_Array(Wunscharray);
         Debug.printArrayList(Vergeben);
@@ -52,7 +52,7 @@ public class Processing {
             moveMultipleNumbers(1, Wunscharray.get(t), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 2);
-        Extendprocessing.vergebeGeschenke(Wunscharray, 1);
+        Extendprocessing.test(Wunscharray);
         System.out.println("zweiter print");
         Debug.printArraylists_Array(Wunscharray);
         Debug.printArrayList(Vergeben);
@@ -65,7 +65,7 @@ public class Processing {
             moveMultipleNumbers(2, Wunscharray.get(t), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 3);
-        Extendprocessing.vergebeGeschenke(Wunscharray, 1);
+        Extendprocessing.test(Wunscharray);
 
 
         System.out.println("Finaler print");
@@ -84,10 +84,8 @@ public class Processing {
                 if (Extendprocessing.Geschenkezaehler[i][spalte] == 1) {
                     int schüler = Extendprocessing.getIndexofSingleNumber(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
                     //Feste Verteilung für Wünsche über alle Versuche
-                    if (Vergeben.contains(i) == false) {
-                        if (wunsch[schüler] == 0) {
+                    if (wunsch[schüler] == 0 &&Vergeben.contains(i) == false) {
                             wunsch[schüler] = (spalte + 1);
-                        }
                     }
                 }
             }

@@ -109,6 +109,38 @@ public class Extendprocessing extends Processing {
 
     }
 
+    public static void test(List<int[]> input) {
+        //ein array copieren
+        for(int i = 0; i < input.size(); i++){
+            int[] zw1 = input.get(i);
+            int[] zw = new int[zw1.length];
+            for (int j = 0; j < zw1.length; j++) {
+                zw[j] = zw1[j];
+            }
+            //für die länge des copierten arrays
+            for (int j = 0; j < zw.length; j++) {
+                if (zw[j] == 1) {
+                    int geschenk = (int) Input.Tabellenarray[j][0];
+                    if(Vergeben.contains(geschenk) == false){
+                        Vergeben.add(geschenk);
+                    }
+                }
+                else if (zw[j] == 2) {
+                    int geschenk = (int) Input.Tabellenarray[j][1];
+                    if(Vergeben.contains(geschenk) == false){
+                        Vergeben.add(geschenk);
+                    }
+                }
+                else if (zw[j] == 3) {
+                    int geschenk = (int) Input.Tabellenarray[j][2];
+                    if(Vergeben.contains(geschenk) == false){
+                        Vergeben.add(geschenk);
+                    }
+                }
+            }
+        }
+
+    }
 
     public static void verteileLetzteWünsche(List<int[]> input) {
         System.out.println("verteileLetzeWünsche wird ausgeführt...");
@@ -123,7 +155,6 @@ public class Extendprocessing extends Processing {
 
 
     }
-
 
 
 }
