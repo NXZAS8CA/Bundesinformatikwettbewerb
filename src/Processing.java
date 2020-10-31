@@ -32,35 +32,37 @@ public class Processing {
         Zwischenspeicher = new int[Input.NumberGifts];
 
 
-        moveSingleNumbers(0, Wunscharray.size());
+        wunscharraylänge = Wunscharray.size();
+        moveSingleNumbers(0, wunscharraylänge);
         wunscharraylänge = Wunscharray.size();
         for (int i = 0; i < wunscharraylänge; i++) {
             moveMultipleNumbers(0, Wunscharray.get(i), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 1);
         Extendprocessing.vergebeGeschenke(Wunscharray, 0);
-        Debug.printArrayList(Vergeben);
-        Debug.printArraylists_Array(Wunscharray);
 
-        moveSingleNumbers(1, Wunscharray.size());
+        //------------------------------------------------
         wunscharraylänge = Wunscharray.size();
-        System.out.print("Wunscharraylänge:");
-        System.out.println(wunscharraylänge);
+        moveSingleNumbers(1, wunscharraylänge);
+        wunscharraylänge = Wunscharray.size();
         for(int t = 0; t < wunscharraylänge; t++){
             moveMultipleNumbers(1, Wunscharray.get(t), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 2);
         Extendprocessing.vergebeGeschenke(Wunscharray, 1);
 
-        moveSingleNumbers(2, Wunscharray.size());
+        //------------------------------------------------
+        wunscharraylänge = Wunscharray.size();
+        moveSingleNumbers(2, wunscharraylänge);
+        wunscharraylänge = Wunscharray.size();
+        for(int t = 0; t < wunscharraylänge; t++){
+            moveMultipleNumbers(2, Wunscharray.get(t), 0);
+        }
+        Extendprocessing.getBestDistribution(Wunscharray, 3);
+        Extendprocessing.vergebeGeschenke(Wunscharray, 1);
 
-        /*
-        System.out.println("----");
-        Debug.printArraylists_Array(Wunscharray);
-        Extendprocessing.getBestDistribution(Wunscharray, 2);
 
 
-*/
         System.out.println("Finaler print");
         Debug.printArraylists_Array(Wunscharray);
         Debug.printArrayList(Vergeben);
