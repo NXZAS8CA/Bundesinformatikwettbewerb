@@ -8,7 +8,6 @@ import java.util.Random;
 
 public class Processing {
     public static List<int[]> Wunscharray;//Für jeden Schüler der erfüllte Wunsch
-    public static List<int[]> Endergebnisarray;//Für jeden Schüler, welches Geschenk er erhalten hat.
     public static boolean Freigabe = true;
     public static int[] Zwischenspeicher;
     public static int[] endergebnis;
@@ -18,18 +17,20 @@ public class Processing {
     public static List<Integer> Vergeben;
     public static int counter = 0;
 
+    public static int anzahlErstervergebenerWünsche = 0;
+    public static int anzahlZweitervergebenerWünsche = 0;
+    public static int anzahlDrittervergebenerWünsche = 0;
+
     public static void main(String[] args) throws IOException {//TODO: crasht bei test6 weil outofmemory
         Extendprocessing.main();//call sort main function
         Extendprocessing.countNumbers(); //returnt Geschenkezähler
         int wunscharraylänge = 0;
         Wunscharray = new ArrayList<int[]>();
-        Endergebnisarray = new ArrayList<int[]>();
         endergebnis = new int[Input.NumberGifts];
         for (int i = 0; i < Input.NumberGifts; i++) {
             endergebnis[i] = 0;
         }
         Wunscharray.add(endergebnis);
-        Endergebnisarray.add(endergebnis);
 
         wunsch = new int[Input.NumberGifts];
         Vergeben = new ArrayList<>();
@@ -114,8 +115,6 @@ public class Processing {
                 counter++;
             }
         }
-        System.out.print("Counter: ");
-        System.out.println(counter);
 
 
     }
@@ -167,7 +166,6 @@ public class Processing {
     public static void endevergeben() {
         Random randomine = new Random();
         int randomzahl = randomine.nextInt(Wunscharray.size());
-        System.out.println(randomzahl);
         int[] zw = Wunscharray.get(randomzahl);
         finaleWunschverteilung = new int[zw.length];
         for(int i = 0; i < zw.length; i++){
@@ -175,30 +173,31 @@ public class Processing {
         }
         System.out.print("finale Geschenkeverteilung");
         Debug.printArray(finaleWunschverteilung);
-        System.out.print("Vergeben:");
-        Debug.printArrayList(Vergeben);
-
-        System.out.println("vergebeGeschenke wird ausgeführt...");
         Vergeben = new ArrayList<>();
         for (int i = 0; i < finaleWunschverteilung.length; i++) {
             if (finaleWunschverteilung[i] == 1) {
                 int geschenk = (int) Input.Tabellenarray[i][0];
+                anzahlErstervergebenerWünsche++;
                 endergebnis[i] = geschenk;
                 Vergeben.add(geschenk);
             } else if (finaleWunschverteilung[i] == 2) {
                 int geschenk = (int) Input.Tabellenarray[i][1];
+                anzahlZweitervergebenerWünsche++;
                 endergebnis[i] = geschenk;
                 Vergeben.add(geschenk);
             } else if (finaleWunschverteilung[i] == 3) {
                 int geschenk = (int) Input.Tabellenarray[i][2];
+                anzahlDrittervergebenerWünsche++;
                 endergebnis[i] = geschenk;
                 Vergeben.add(geschenk);
             }
         }
         List <Integer> netVergebeneGeschenke = new ArrayList<>();
+        List <Integer> netVergebeneGeschenke_sicherung = new ArrayList<>();
         for(int i = 1; i < Input.NumberGifts + 1; i++){
             if (Vergeben.contains(i) == false) {
                 netVergebeneGeschenke.add(i);
+                netVergebeneGeschenke_sicherung.add(i);
             }
         }
         for(int i = 0; i < endergebnis.length; i++){
@@ -209,8 +208,24 @@ public class Processing {
                 }
             }
         }
-        System.out.print("Geschenkeverteilung:");
+        System.out.println("----------------------------------------------------------------------------");
+        System.out.println("Es folgt nun ein von uns random ausgesuchtes wunderschönes Ergebnis");
         Debug.printArray(endergebnis);
+        System.out.println();
+        System.out.print("Es wurden ");
+        System.out.print(anzahlErstervergebenerWünsche);
+        System.out.print("  erste Wünsche vergeben");
+        System.out.println();
+        System.out.print("Es wurden ");
+        System.out.print(anzahlZweitervergebenerWünsche);
+        System.out.print(" zweite Wünsche vergeben");
+        System.out.println();
+        System.out.print("Es wurden ");
+        System.out.print(anzahlDrittervergebenerWünsche);
+        System.out.print(" dritte Wünsche vergeben");
+        System.out.println();
+        System.out.print("Folgende Geschenke wurden zwangsweise vergeben: ");
+        Debug.printArrayList(netVergebeneGeschenke_sicherung);
     }
 
 

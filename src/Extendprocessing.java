@@ -1,15 +1,12 @@
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class Extendprocessing extends Processing {
 
     static long[][] Geschenkezaehler;
     public static List<Integer> IndexOfMultipleNumbers;
-    public static long[] vergebeneZahlen;
 
     public static void main() throws IOException {
         Input.main();//call main input function
@@ -113,11 +110,6 @@ public class Extendprocessing extends Processing {
                 }
             }
         }
-
-    }
-
-    public static void aussortieren(List<int[]> input) {
-        System.out.println("verteileLetzeWünsche wird ausgeführt...");
 
     }
 
