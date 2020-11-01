@@ -1,6 +1,9 @@
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Extendprocessing extends Processing {
 
@@ -156,7 +159,18 @@ public class Extendprocessing extends Processing {
 
     }
 
-    public static void schonVorhanden(){}
+    public static void schonVorhanden(int[] input){
+        int[] array1 =new int[input.length];
+        int[] array2 = new int[input.length];
+
+        for(int i = 0; i < Wunscharray.size(); i++){
+            array1 = Wunscharray.get(i);
+            if(Arrays.equals(array1, array2) == true);
+        }
+
+
+
+    }
 
 
 }
