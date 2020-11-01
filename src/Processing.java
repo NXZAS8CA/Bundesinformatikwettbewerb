@@ -196,15 +196,17 @@ public class Processing {
             }
         }
         List <Integer> netVergebeneGeschenke = new ArrayList<>();
-        for(int i = 1; i < Input.NumberGifts; i++){
+        for(int i = 1; i < Input.NumberGifts + 1; i++){
             if (Vergeben.contains(i) == false) {
                 netVergebeneGeschenke.add(i);
             }
         }
         for(int i = 0; i < endergebnis.length; i++){
             if(endergebnis[i] == 0){
-                endergebnis[i] = netVergebeneGeschenke.get(netVergebeneGeschenke.size() - 1);
-                netVergebeneGeschenke.remove(netVergebeneGeschenke.size() - 1);
+                if (netVergebeneGeschenke.size() != 0){
+                    endergebnis[i] = netVergebeneGeschenke.get(netVergebeneGeschenke.size() - 1);
+                    netVergebeneGeschenke.remove(netVergebeneGeschenke.size() - 1);
+                }
             }
         }
         System.out.print("Geschenkeverteilung:");
