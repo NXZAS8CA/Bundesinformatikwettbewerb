@@ -40,7 +40,7 @@ public class Processing {
             moveMultipleNumbers(0, Wunscharray.get(i), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 1);
-        Extendprocessing.test(Wunscharray);
+        Extendprocessing.Geschenkvergabe(Wunscharray);
         System.out.println("erster print");
         Debug.printArraylists_Array(Wunscharray);
         System.out.println();
@@ -54,7 +54,7 @@ public class Processing {
             moveMultipleNumbers(1, Wunscharray.get(t), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 2);
-        Extendprocessing.test(Wunscharray);
+        Extendprocessing.Geschenkvergabe(Wunscharray);
         System.out.println("zweiter print");
         Debug.printArraylists_Array(Wunscharray);
         System.out.println();
@@ -68,7 +68,7 @@ public class Processing {
             moveMultipleNumbers(2, Wunscharray.get(t), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 3);
-        Extendprocessing.test(Wunscharray);
+        Extendprocessing.Geschenkvergabe(Wunscharray);
 
 
         System.out.println("Finaler print");
@@ -143,13 +143,10 @@ public class Processing {
                         for (int p = 0; p < arr2.length; p++) {
                             arr3[p] = arr2[p];
                         }
-                        for (int o = 0; o < Wunscharray.size(); o++) {
-                            int[] zwischenarray = Wunscharray.get(o);
-                            if (Arrays.deepEquals(new int[][]{zwischenarray}, new int[][]{arr3}) == false) {
-                                Wunscharray.add(arr3);
-                                counter = counterNeu;
-
-                            }
+                        Extendprocessing.schonVorhanden(arr3);
+                        if(Freigabe == true){
+                            Wunscharray.add(arr3);
+                            counter = counterNeu;
                         }
                     }
                     if (spalte == 0) {

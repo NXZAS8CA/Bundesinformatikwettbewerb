@@ -112,7 +112,7 @@ public class Extendprocessing extends Processing {
 
     }
 
-    public static void test(List<int[]> input) {
+    public static void Geschenkvergabe(List<int[]> input) {
         //ein array copieren
         for(int i = 0; i < input.size(); i++){
             int[] zw1 = input.get(i);
@@ -145,31 +145,27 @@ public class Extendprocessing extends Processing {
 
     }
 
-    public static void verteileLetzteWünsche(List<int[]> input) {
+    public static void aussortieren(List<int[]> input) {
         System.out.println("verteileLetzeWünsche wird ausgeführt...");
-        for (int i = 0; i < Input.NumberGifts; i++) {
-            if (Vergeben.contains(i) == false) {
-                //TODO: Es soll am Ende durch das Endergebnis gegangen und geschaut werden, welcher Schüler keinen seiner drei Wünsche erfüllt bekommen hat und diesem wird ein übrig gebliebenes Geschenk zugeteilt.
-
-            }
-
-
-        }
-
 
     }
 
     public static void schonVorhanden(int[] input){
         int[] array1 =new int[input.length];
         int[] array2 = new int[input.length];
-
-        for(int i = 0; i < Wunscharray.size(); i++){
-            array1 = Wunscharray.get(i);
-            if(Arrays.equals(array1, array2) == true);
+        Processing.Freigabe = true;
+        for(int j = 0; j < input.length; j++){
+            array1[j] = input[j];
         }
-
-
-
+        for(int i = 0; i< Wunscharray.size(); i++){
+            int[] zw = Wunscharray.get(i);
+            for(int j = 0; j < zw.length; j++){
+                array2[j] = zw[j];
+            }
+            if(Arrays.equals(array1, array2) == true){
+                Processing.Freigabe = false;
+            }
+        }
     }
 
 
