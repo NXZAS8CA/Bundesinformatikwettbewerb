@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.lang.*;
+import java.util.Random;
 
 
 public class Processing {
@@ -12,6 +13,8 @@ public class Processing {
     public static int[] Zwischenspeicher;
     public static int[] endergebnis;
     public static int[] wunsch;
+    public static int[] finaleWunschverteilung;
+    public static int[] finaleGeschenkeverteilung;
     public static List<Integer> Vergeben;
     public static int counter = 0;
 
@@ -75,6 +78,8 @@ public class Processing {
         Debug.printArraylists_Array(Wunscharray);
         System.out.println();
         Debug.printArrayList(Vergeben);
+        endevergeben();
+
     }
 
     public static void moveSingleNumbers(int spalte, int länge) {
@@ -144,7 +149,7 @@ public class Processing {
                             arr3[p] = arr2[p];
                         }
                         Extendprocessing.schonVorhanden(arr3);
-                        if(Freigabe == true){
+                        if (Freigabe == true) {
                             Wunscharray.add(arr3);
                             counter = counterNeu;
                         }
@@ -157,6 +162,53 @@ public class Processing {
                 }
             }
         }
+    }
+
+    public static void endevergeben() {
+        Random randomine = new Random();
+        int randomzahl = randomine.nextInt(Wunscharray.size());
+        System.out.println(randomzahl);
+        int[] zw = Wunscharray.get(randomzahl);
+        finaleWunschverteilung = new int[zw.length];
+        for(int i = 0; i < zw.length; i++){
+            finaleWunschverteilung[i] = zw[i];
+        }
+        System.out.print("finale Geschenkeverteilung");
+        Debug.printArray(finaleWunschverteilung);
+        System.out.print("Vergeben:");
+        Debug.printArrayList(Vergeben);
+
+        System.out.println("vergebeGeschenke wird ausgeführt...");
+        Vergeben = new ArrayList<>();
+        for (int i = 0; i < finaleWunschverteilung.length; i++) {
+            if (finaleWunschverteilung[i] == 1) {
+                int geschenk = (int) Input.Tabellenarray[i][0];
+                endergebnis[i] = geschenk;
+                Vergeben.add(geschenk);
+            } else if (finaleWunschverteilung[i] == 2) {
+                int geschenk = (int) Input.Tabellenarray[i][1];
+                endergebnis[i] = geschenk;
+                Vergeben.add(geschenk);
+            } else if (finaleWunschverteilung[i] == 3) {
+                int geschenk = (int) Input.Tabellenarray[i][2];
+                endergebnis[i] = geschenk;
+                Vergeben.add(geschenk);
+            }
+        }
+        List <Integer> netVergebeneGeschenke = new ArrayList<>();
+        for(int i = 1; i < Input.NumberGifts; i++){
+            if (Vergeben.contains(i) == false) {
+                netVergebeneGeschenke.add(i);
+            }
+        }
+        for(int i = 0; i < endergebnis.length; i++){
+            if(endergebnis[i] == 0){
+                endergebnis[i] = netVergebeneGeschenke.get(netVergebeneGeschenke.size() - 1);
+                netVergebeneGeschenke.remove(netVergebeneGeschenke.size() - 1);
+            }
+        }
+        System.out.print("Geschenkeverteilung:");
+        Debug.printArray(endergebnis);
     }
 
 
