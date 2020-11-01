@@ -156,5 +156,7 @@ public class Extendprocessing extends Processing {
 
     }
 
+    public static void schonVorhanden(){}
+
 
 }

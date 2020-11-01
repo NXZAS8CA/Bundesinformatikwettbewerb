@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.lang.*;
 
@@ -49,7 +50,7 @@ public class Processing {
         wunscharraylänge = Wunscharray.size();
         moveSingleNumbers(1, wunscharraylänge);
         wunscharraylänge = Wunscharray.size();
-        for(int t = 0; t < wunscharraylänge; t++){
+        for (int t = 0; t < wunscharraylänge; t++) {
             moveMultipleNumbers(1, Wunscharray.get(t), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 2);
@@ -63,7 +64,7 @@ public class Processing {
         wunscharraylänge = Wunscharray.size();
         moveSingleNumbers(2, wunscharraylänge);
         wunscharraylänge = Wunscharray.size();
-        for(int t = 0; t < wunscharraylänge; t++){
+        for (int t = 0; t < wunscharraylänge; t++) {
             moveMultipleNumbers(2, Wunscharray.get(t), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 3);
@@ -87,8 +88,8 @@ public class Processing {
                 if (Extendprocessing.Geschenkezaehler[i][spalte] == 1) {
                     int schüler = Extendprocessing.getIndexofSingleNumber(i, spalte); // Index = Index of Wunsch in Tabellenarray = Schüler
                     //Feste Verteilung für Wünsche über alle Versuche
-                    if (wunsch[schüler] == 0 &&Vergeben.contains(i) == false) {
-                            wunsch[schüler] = (spalte + 1);
+                    if (wunsch[schüler] == 0 && Vergeben.contains(i) == false) {
+                        wunsch[schüler] = (spalte + 1);
                     }
                 }
             }
@@ -115,7 +116,6 @@ public class Processing {
     }
 
     public static void moveMultipleNumbers(int spalte, int[] arr, int x) {
-
         for (int i = x; i < Extendprocessing.Geschenkezaehler.length; i++) {// i = Geschenk
             if (Extendprocessing.Geschenkezaehler[i][spalte] > 1) {
                 Extendprocessing.getIndexofMultipleNumbers(i, spalte);
@@ -138,16 +138,23 @@ public class Processing {
                     }
                     int[] arr3 = new int[arr2.length];
                     if (counterNeu >= counter && counterNeu != 0) {
-                        for(int p = 0; p < arr2.length; p++){
+
+
+                        for (int p = 0; p < arr2.length; p++) {
                             arr3[p] = arr2[p];
                         }
-                        Wunscharray.add(arr3);
-                        counter = counterNeu;
+                        for (int o = 0; o < Wunscharray.size(); o++) {
+                            int[] zwischenarray = Wunscharray.get(o);
+                            if (Arrays.deepEquals(new int[][]{zwischenarray}, new int[][]{arr3}) == false) {
+                                Wunscharray.add(arr3);
+                                counter = counterNeu;
+
+                            }
+                        }
                     }
-                    if(spalte == 0){
+                    if (spalte == 0) {
                         moveMultipleNumbers(0, arr2, i + 1);
-                    }
-                    else{
+                    } else {
                         moveMultipleNumbers(0, arr3, i + 1);
                     }
                 }
