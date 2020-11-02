@@ -17,10 +17,10 @@ public class Extendprocessing extends Processing {
         System.out.println("countNumbers wird ausgeführt...");
 
         for (int i = 1; i <= Input.AnzahlGeschenke; i++) {
-            for (int y = 0; y < 3; y++) {
-                for (int j = 0; j < Input.WünscheAusTXT.length; j++) {
-                    if (i == Input.WünscheAusTXT[j][y]) {
-                        Geschenkezaehler[i][y]++;
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < Input.WünscheAusTXT.length; k++) {
+                    if (i == Input.WünscheAusTXT[k][j]) {
+                        Geschenkezaehler[i][j]++;
                     }
                 }
             }
@@ -50,12 +50,12 @@ public class Extendprocessing extends Processing {
     }
 
     public static void getBestDistribution(List<int[]> Input, int wunsch) {
-        System.out.println("getBestDistribiution");
         System.out.println("getBestDistribution wird ausgeführt...");
         int[] größter = Input.get((Input.size() - 1));
         int inputsize = Input.size();
         int iAnzahlGrößter = 0;
         int iAnzahl = 0;
+
         for (int i = 0; i < größter.length; i++) {
             if (größter[i] == wunsch) {
                 iAnzahlGrößter++;
@@ -64,26 +64,23 @@ public class Extendprocessing extends Processing {
         for (int i = 1; i <= inputsize; i++) {
             int[] zwischen = Input.get(inputsize - i);
             iAnzahl = 0;
-            for (int f = 0; f < zwischen.length; f++) {
-                if (zwischen[f] == wunsch) {
+            for (int j = 0; j < zwischen.length; j++) {
+                if (zwischen[j] == wunsch) {
                     iAnzahl++;
                 }
             }
             if (iAnzahl < iAnzahlGrößter) {
                 Input.remove(inputsize - i);
             }
-
         }
         Wunscharray = new ArrayList<int[]>();
         for (int i = 0; i < Input.size(); i++) {
             int[] zw = Input.get(i);
             Wunscharray.add(zw);
-
         }
     }
 
     public static void Geschenkvergabe(List<int[]> input) {
-        //ein array copieren
         for (int i = 0; i < input.size(); i++) {
             int[] zw1 = input.get(i);
             int[] zw = new int[zw1.length];
@@ -117,13 +114,13 @@ public class Extendprocessing extends Processing {
         int[] array1 = new int[input.length];
         int[] array2 = new int[input.length];
         Processing.Freigabe = true;
-        for (int j = 0; j < input.length; j++) {
-            array1[j] = input[j];
+        for (int i = 0; i < input.length; i++) {
+            array1[i] = input[i];
         }
-        for (int i = 0; i < Wunscharray.size(); i++) {
-            int[] zw = Wunscharray.get(i);
-            for (int j = 0; j < zw.length; j++) {
-                array2[j] = zw[j];
+        for (int j = 0; j < Wunscharray.size(); j++) {
+            int[] zw = Wunscharray.get(j);
+            for (int k = 0; k < zw.length; k++) {
+                array2[k] = zw[k];
             }
             if (Arrays.equals(array1, array2) == true) {
                 Processing.Freigabe = false;

@@ -9,8 +9,6 @@ public class Output extends Processing{
         int countSecond = anzahlZweitervergebenerWünsche;
         int countThird = anzahlDrittervergebenerWünsche;
         int countRest = Input.AnzahlGeschenke -(countFirst + countSecond + countThird);
-        //TODO: Es soll am Ende eine File ausgegeben werden, in der steht wie viele Wünsche erfüllt wurden und welchen Wunsch jeder Schüler erhalten hat.
-
 
         File file = new File("Output.txt");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file));
@@ -26,6 +24,7 @@ public class Output extends Processing{
         bw.newLine();
         bw.write("");
         bw.newLine();
+
         for(int i = 0; i < Input.AnzahlGeschenke; i++){
             bw.write("Schüler "  + (i+1) + ": " + Integer.toString(Processing.endergebnis[i]));
             bw.newLine();
