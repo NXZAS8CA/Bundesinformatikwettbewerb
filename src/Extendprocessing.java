@@ -10,16 +10,16 @@ public class Extendprocessing extends Processing {
 
     public static void main() throws IOException {
         Input.main();//call main input function
-        Geschenkezaehler = new long[Input.NumberGifts + 1][3];
+        Geschenkezaehler = new long[Input.AnzahlGeschenke + 1][3];
     }
 
     public static long[][] countNumbers() {//Zählt die Anzahl der Geschenke in einer Spalte vom Tabellenarray.
         System.out.println("countNumbers wird ausgeführt...");
 
-        for (int i = 1; i <= Input.NumberGifts; i++) {
+        for (int i = 1; i <= Input.AnzahlGeschenke; i++) {
             for (int y = 0; y < 3; y++) {
-                for (int j = 0; j < Input.Tabellenarray.length; j++) {
-                    if (i == Input.Tabellenarray[j][y]) {
+                for (int j = 0; j < Input.WünscheAusTXT.length; j++) {
+                    if (i == Input.WünscheAusTXT[j][y]) {
                         Geschenkezaehler[i][y]++;
                     }
                 }
@@ -31,8 +31,8 @@ public class Extendprocessing extends Processing {
     public static int getIndexofSingleNumber(int input, int spalte) {//Geht nur für Zahlen die einmal in ihrer Spalte vorkommen
         //System.out.println("getIndexofSingleNumber wird ausgeführt...");
         int index = 0;
-        for (int i = 0; i < Input.Tabellenarray.length; i++) {
-            if (Input.Tabellenarray[i][spalte] == input) {
+        for (int i = 0; i < Input.WünscheAusTXT.length; i++) {
+            if (Input.WünscheAusTXT[i][spalte] == input) {
                 index = i;
             }
         }
@@ -42,8 +42,8 @@ public class Extendprocessing extends Processing {
     public static void getIndexofMultipleNumbers(int input, int spalte) {//Returnt die Indize von Zahlen die mehrfach in einer Spalte vorkommen.
         //System.out.println("getIndexofMultipleNumbers wird ausgeführt...");
         IndexOfMultipleNumbers = new ArrayList<>();
-        for (int i = 0; i < Input.Tabellenarray.length; i++) {
-            if (Input.Tabellenarray[i][spalte] == input) {
+        for (int i = 0; i < Input.WünscheAusTXT.length; i++) {
+            if (Input.WünscheAusTXT[i][spalte] == input) {
                 IndexOfMultipleNumbers.add(i);
             }
         }
@@ -93,17 +93,17 @@ public class Extendprocessing extends Processing {
             //für die länge des copierten arrays
             for (int j = 0; j < zw.length; j++) {
                 if (zw[j] == 1) {
-                    int geschenk = (int) Input.Tabellenarray[j][0];
+                    int geschenk = (int) Input.WünscheAusTXT[j][0];
                     if (Vergeben.contains(geschenk) == false) {
                         Vergeben.add(geschenk);
                     }
                 } else if (zw[j] == 2) {
-                    int geschenk = (int) Input.Tabellenarray[j][1];
+                    int geschenk = (int) Input.WünscheAusTXT[j][1];
                     if (Vergeben.contains(geschenk) == false) {
                         Vergeben.add(geschenk);
                     }
                 } else if (zw[j] == 3) {
-                    int geschenk = (int) Input.Tabellenarray[j][2];
+                    int geschenk = (int) Input.WünscheAusTXT[j][2];
                     if (Vergeben.contains(geschenk) == false) {
                         Vergeben.add(geschenk);
                     }

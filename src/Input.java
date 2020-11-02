@@ -4,9 +4,9 @@ public class Input extends Extendprocessing {
 
 
     private static String[] Reihenarray;
-    public static long[][] Tabellenarray;
-    public static int NumberGifts;
-    public static String NumberStudents;
+    public static long[][] WünscheAusTXT;
+    public static int AnzahlGeschenke;
+    public static String AnzahlSchüler;
     public static int AnzahlVerschiedenerWünsche = 3;
 
 
@@ -15,18 +15,18 @@ public class Input extends Extendprocessing {
         File file = new File("Test.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
 
-        String NumberStudents = br.readLine();
-        NumberGifts = Integer.parseInt(NumberStudents);
-        Tabellenarray = new long[NumberGifts][AnzahlVerschiedenerWünsche];
+        String AnzahlSchüler = br.readLine();
+        AnzahlGeschenke = Integer.parseInt(AnzahlSchüler);
+        WünscheAusTXT = new long[AnzahlGeschenke][AnzahlVerschiedenerWünsche];
 
 
-        for(int i = 1; i <= NumberGifts; i ++){
+        for(int i = 1; i <= AnzahlGeschenke; i ++){
             String Reihe = br.readLine();
             Reihenarray = Reihe.split("\\s+");
             int length = Reihenarray.length;
 
             for(int x = 0; x <length; x++){
-                Tabellenarray[i-1][x] =  Long.parseLong(Reihenarray[x]);
+                WünscheAusTXT[i-1][x] =  Long.parseLong(Reihenarray[x]);
 
             }
         }
