@@ -21,7 +21,7 @@ public class Processing {
     public static int anzahlZweitervergebenerWünsche = 0;
     public static int anzahlDrittervergebenerWünsche = 0;
 
-    public static void main(String[] args) throws IOException {//TODO: crasht bei test5 weil zu viel Recursion, braucht min 40 min für die erste Verteilung.
+    public static void main(String[] args) throws IOException {
         Extendprocessing.main();//call sort main function
         Extendprocessing.countNumbers(); //returnt Geschenkezähler
 

@@ -1,16 +1,16 @@
 Schüleranzahl: 10
-Erfüllte erste Wünsche: 6
-Erfüllte zweite Wünsche: 0
+Erfüllte erste Wünsche: 1
+Erfüllte zweite Wünsche: 1
 Erfüllte dritte Wünsche: 1
-Nicht erfüllte Wünsche: 3
+Nicht erfüllte Wünsche: 7
 
-Schüler 1: 6
-Schüler 2: 2
-Schüler 3: 3
+Schüler 1: 10
+Schüler 2: 9
+Schüler 3: 1
 Schüler 4: 8
-Schüler 5: 5
-Schüler 6: 4
-Schüler 7: 1
-Schüler 8: 7
-Schüler 9: 9
-Schüler 10: 10
+Schüler 5: 7
+Schüler 6: 2
+Schüler 7: 3
+Schüler 8: 6
+Schüler 9: 5
+Schüler 10: 4
