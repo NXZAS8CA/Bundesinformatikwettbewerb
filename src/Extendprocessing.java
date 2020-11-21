@@ -55,7 +55,6 @@ public class Extendprocessing extends Processing {
         int inputsize = Input.size();
         int iAnzahlGrößter = 0;
         int iAnzahl = 0;
-
         for (int i = 0; i < größter.length; i++) {
             if (größter[i] == wunsch) {
                 iAnzahlGrößter++;
@@ -127,6 +126,4 @@ public class Extendprocessing extends Processing {
             }
         }
     }
-
-
 }

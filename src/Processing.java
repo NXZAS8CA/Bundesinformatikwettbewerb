@@ -6,7 +6,7 @@ import java.util.Random;
 
 
 public class Processing {
-    public static List<int[]> Wunscharray;//Für jeden Schüler der erfüllte Wunsch
+    public static List<int[]> Wunscharray;
     public static List<Integer> Vergeben;
     public static boolean Freigabe = true;
 
@@ -14,7 +14,6 @@ public class Processing {
     public static int[] endergebnis;
     public static int[] wunsch;
     public static int[] finaleWunschverteilung;
-    public static int[] finaleGeschenkeverteilung;
 
     public static int counter = 0;
     public static int anzahlErstervergebenerWünsche = 0;
@@ -23,8 +22,7 @@ public class Processing {
 
     public static void main(String[] args) throws IOException {
         Extendprocessing.main();//call sort main function
-        Extendprocessing.countNumbers(); //returnt Geschenkezähler
-
+        Extendprocessing.countNumbers(); //Geschenkezähler return
         int wunscharraylänge = 0;
         Wunscharray = new ArrayList<int[]>();
         endergebnis = new int[Input.AnzahlGeschenke];
@@ -35,16 +33,12 @@ public class Processing {
         wunsch = new int[Input.AnzahlGeschenke];
         Vergeben = new ArrayList<>();
         Zwischenspeicher = new int[Input.AnzahlGeschenke];
-
-
         wunscharraylänge = Wunscharray.size();
         moveSingleNumbers(0, wunscharraylänge);
         wunscharraylänge = Wunscharray.size();
-
         for (int i = 0; i < wunscharraylänge; i++) {
             moveMultipleNumbers(0, Wunscharray.get(i), 0);
         }
-
         Extendprocessing.getBestDistribution(Wunscharray, 1);
         Extendprocessing.Geschenkvergabe(Wunscharray);
 
@@ -52,39 +46,32 @@ public class Processing {
         Debug.printArraylists_Array(Wunscharray);
         System.out.println();
         Debug.printArrayList(Vergeben);
-
         //------------------------------------------------
         wunscharraylänge = Wunscharray.size();
         moveSingleNumbers(1, wunscharraylänge);
         wunscharraylänge = Wunscharray.size();
-
         for (int t = 0; t < wunscharraylänge; t++) {
             moveMultipleNumbers(1, Wunscharray.get(t), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 2);
         Extendprocessing.Geschenkvergabe(Wunscharray);
-
         System.out.println("Zweiter Print");
         Debug.printArraylists_Array(Wunscharray);
         System.out.println();
         Debug.printArrayList(Vergeben);
-
         //------------------------------------------------
         wunscharraylänge = Wunscharray.size();
         moveSingleNumbers(2, wunscharraylänge);
         wunscharraylänge = Wunscharray.size();
-
         for (int t = 0; t < wunscharraylänge; t++) {
             moveMultipleNumbers(2, Wunscharray.get(t), 0);
         }
         Extendprocessing.getBestDistribution(Wunscharray, 3);
         Extendprocessing.Geschenkvergabe(Wunscharray);
-
         System.out.println("Finaler Print");
         Debug.printArraylists_Array(Wunscharray);
         System.out.println();
         Debug.printArrayList(Vergeben);
-
         endevergeben();
         Output.main();
     }
@@ -108,12 +95,8 @@ public class Processing {
             for (int l = 0; l < wunsch.length; l++) {
                 zw[l] = wunsch[l];
             }
-
             Wunscharray.set(i, zw);
-
         }
-
-
         int[] first = Wunscharray.get(Wunscharray.size() - 1);
         counter = 0;
         for (int i = 0; i < first.length; i++) {
@@ -121,8 +104,6 @@ public class Processing {
                 counter++;
             }
         }
-
-
     }
 
     public static void moveMultipleNumbers(int spalte, int[] arr, int x) {
@@ -144,12 +125,9 @@ public class Processing {
                         if (arr2[h] == spalte + 1) {
                             counterNeu++;
                         }
-
                     }
                     int[] arr3 = new int[arr2.length];
                     if (counterNeu >= counter && counterNeu != 0) {
-
-
                         for (int p = 0; p < arr2.length; p++) {
                             arr3[p] = arr2[p];
                         }
